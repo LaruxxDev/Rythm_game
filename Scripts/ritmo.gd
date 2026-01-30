@@ -2,9 +2,10 @@ extends Node2D
 
 
 @export var bpm : int = 120
-@export var margen : float = 0.30 # Margen de error 
+@export var margen : float = 0.20 # Margen de error 
 var ultimo_beat = -1
 
+var hit_beat = -1
 var lista_comandos = []
 
 var intervalo_beat = 0.0
@@ -31,7 +32,8 @@ func _physics_process(delta: float) -> void:
 	var beat_actual = int(pos_cancion / intervalo_beat)
 	if beat_actual > ultimo_beat:
 		ultimo_beat = beat_actual
-		emit_signal("nuevo_beat")
+		_on_nuevo_beat()
+		#emit_signal("nuevo_beat")
 	
 	var index_beat_cercano = round(pos_cancion / intervalo_beat)
 	var time_beat_cercano = index_beat_cercano * intervalo_beat
@@ -48,17 +50,19 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func intentar_beat(tipo, time_margen, beat):
-	if beat == ultimo_beat:
+	if beat == hit_beat:
 		print("NO SPAMES POLLUELO")
 		return
 	
 	if time_margen <= margen:
-		print("Perfecto!! Beat: ", beat, " - ", tipo)
-		ultimo_beat = beat
+		print("Perfecto!! Beat: ", beat, " - ", tipo,time_margen)
+		hit_beat = beat
 		registrar_input(tipo)
 	else:
 		print("Fallaste bribon (Diff: ", time_margen, ")")
-		
+	
+	if lista_comandos.size() >= 4:
+		comprobar_combo()
 		
 
 func comprobar_combo():
@@ -82,7 +86,6 @@ func registrar_input(tipo):
 
 
 func resetear_combo():
-	print("Combo no encontrado ¡¡TROPEZASTE!!")
 	lista_comandos.clear()
 
 func _on_nuevo_beat():

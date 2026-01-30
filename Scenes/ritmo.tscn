@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dstmhj67y3et1"]
 
-[ext_resource type="Script" uid="uid://c8uppgfp7h7k5" path="res://ritmo.gd" id="1_xv2qi"]
-[ext_resource type="AudioStream" uid="uid://od7ayrlujx33" path="res://leonell-cassio-the-paranormal-is-real-ft-carrie-163742.mp3" id="2_xu3rm"]
+[ext_resource type="Script" uid="uid://c8uppgfp7h7k5" path="res://Scripts/ritmo.gd" id="1_316ka"]
+[ext_resource type="AudioStream" uid="uid://od7ayrlujx33" path="res://Assets/leonell-cassio-the-paranormal-is-real-ft-carrie-163742.mp3" id="2_yomdr"]
 
 [node name="Ritmo" type="Node2D" unique_id=1441584467]
-script = ExtResource("1_xv2qi")
+script = ExtResource("1_316ka")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1857800486]
-stream = ExtResource("2_xu3rm")
+stream = ExtResource("2_yomdr")
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1343926104]
@@ -16,6 +16,10 @@ autoplay = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 352.0
+offset_top = 218.0
+offset_right = -448.0
+offset_bottom = -277.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.28235295)
