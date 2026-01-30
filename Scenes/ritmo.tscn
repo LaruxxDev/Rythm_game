@@ -16,10 +16,22 @@ autoplay = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 352.0
-offset_top = 218.0
-offset_right = -448.0
-offset_bottom = -277.0
+offset_left = 547.0
+offset_top = 2.0
+offset_right = -557.0
+offset_bottom = -605.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.28235295)
+
+[node name="Timer" type="Timer" parent="." unique_id=589293498]
+autostart = true
+ignore_time_scale = true
+
+[node name="Spawner" type="Marker2D" parent="." unique_id=1718812998]
+position = Vector2(782, 27)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=595490150]
+position = Vector2(571, 24)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
