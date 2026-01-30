@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b1tfalpbqlrje"]
+
+[ext_resource type="Texture2D" uid="uid://djkkcxkd57f61" path="res://icon.svg" id="1_uwe0x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwe0x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfd7x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfd7x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kk25c"]
+
+[node name="ControlesMenu" type="Control" unique_id=1641072976]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=532237562]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13077214, 0.13077214, 0.13077211, 1)
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1693875473]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/tab_separation = 50
+theme_override_font_sizes/font_size = 25
+theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_uwe0x")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_mfd7x")
+theme_override_styles/tab_disabled = SubResource("StyleBoxEmpty_mfd7x")
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_kk25c")
+tab_alignment = 1
+current_tab = 0
+
+[node name="Keyboard" type="PanelContainer" parent="TabContainer" unique_id=451557404]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="keyboardImage" type="TextureRect" parent="TabContainer/Keyboard" unique_id=1665173460]
+layout_mode = 2
+texture = ExtResource("1_uwe0x")
+
+[node name="Mando" type="PanelContainer" parent="TabContainer" unique_id=1216429288]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MandoImage" type="TextureRect" parent="TabContainer/Mando" unique_id=760709478]
+layout_mode = 2
+texture = ExtResource("1_uwe0x")

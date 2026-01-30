@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dovoymn2mu03g"]
+
+[node name="VideoMenu" type="Control" unique_id=663334806]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=529383523]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09112144, 0.09112146, 0.09112144, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1261618135]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -65.5
+offset_right = 60.0
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="LabelContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1869107093]
+layout_mode = 2
+
+[node name="ScreenMode" type="Label" parent="HBoxContainer/LabelContainer" unique_id=2123542662]
+layout_mode = 2
+text = "Pantalla Completa"
+
+[node name="Resolucion" type="Label" parent="HBoxContainer/LabelContainer" unique_id=2032410436]
+layout_mode = 2
+text = "Resolución"
+
+[node name="Container2" type="VBoxContainer" parent="HBoxContainer" unique_id=726424793]
+layout_mode = 2
+
+[node name="OptionButton" type="CheckButton" parent="HBoxContainer/Container2" unique_id=238597127]
+layout_mode = 2
+
+[node name="OptionButton2" type="OptionButton" parent="HBoxContainer/Container2" unique_id=1865111893]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "1280 x 720"
+popup/item_0/id = 0
+popup/item_1/text = "1920 x 1080"
+popup/item_1/id = 1
+popup/item_2/text = "2560 x 1440"
+popup/item_2/id = 2
