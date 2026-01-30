@@ -44,14 +44,18 @@ func _physics_process(_delta: float) -> void:
 	var time_beat_cercano = index_beat_cercano * intervalo_beat
 	var time_margen = abs(pos_cancion - time_beat_cercano)
 	
-	if Input.is_action_just_pressed("ui_up"):
-		intentar_beat("Chaka", time_margen, index_beat_cercano)
-	elif Input.is_action_just_pressed("ui_down"):
-		intentar_beat("Don", time_margen, index_beat_cercano)
-	elif Input.is_action_just_pressed("ui_left"):
-		intentar_beat("Pon", time_margen, index_beat_cercano)
-	elif Input.is_action_just_pressed("ui_right"):
-		intentar_beat("Pata", time_margen, index_beat_cercano)
+	if Input.is_action_just_pressed("fuego"):
+		if intentar_beat("Chaka", time_margen, index_beat_cercano):
+			Signalbus.fuego.emit()
+	elif Input.is_action_just_pressed("agua"):
+		if intentar_beat("Don", time_margen, index_beat_cercano):
+			Signalbus.agua.emit()
+	elif Input.is_action_just_pressed("tierra"):
+		if intentar_beat("Pon", time_margen, index_beat_cercano):
+			Signalbus.tierra.emit()
+	elif Input.is_action_just_pressed("planta"):
+		if intentar_beat("Pata", time_margen, index_beat_cercano):
+			Signalbus.planta.emit()
 
 
 func intentar_beat(tipo, time_margen, beat):
@@ -63,8 +67,10 @@ func intentar_beat(tipo, time_margen, beat):
 		print("Perfecto!! Beat: ", beat, " - ", tipo,time_margen)
 		hit_beat = beat
 		registrar_input(tipo)
+		return true
 	else:
 		print("Fallaste bribon (Diff: ", time_margen, ")")
+		return false
 	
 	if lista_comandos.size() >= 4:
 		comprobar_combo()
