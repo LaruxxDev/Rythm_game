@@ -1,5 +1,6 @@
 extends Node2D
 
+const BIT = preload("uid://oplnfghwhb2l")
 
 @export var bpm : int = 100
 @export var margen : float = 0.20 # Margen de error 
@@ -14,14 +15,14 @@ var intervalo_beat = 0.0
 @onready var musica = $AudioStreamPlayer
 @onready var ui_beat = $CanvasLayer/ColorRect
 @onready var timer: Timer = $Timer
-const BIT = preload("uid://oplnfghwhb2l")
+
 
 func _ready() -> void:
 	ui_beat.visible = false
 	intervalo_beat = 60.0 / bpm 
 	timer.wait_time = intervalo_beat
 	Signalbus.nuevo_beat.connect(_on_nuevo_beat)
-	
+	Signalbus.win.connect(_on_win_round)
 	if not musica.playing:
 		musica.play()
 
@@ -66,10 +67,10 @@ func intentar_beat(time_margen, beat):
 		return
 	if not lista_comandos.is_empty() and lista_comandos[lista_comandos.size()-1] != beat-1:
 		Signalbus.fallo.emit()
+		resetear_combo()
 		print("te as saltado 1")
 		return
 	
-	print(lista_comandos)
 	if time_margen <= margen:
 		print("Perfecto!! Beat: ", beat, " - ",time_margen)
 		hit_beat = beat
@@ -79,28 +80,6 @@ func intentar_beat(time_margen, beat):
 		print("Fallaste bribon (Diff: ", time_margen, ")")
 		return false
 	
-	if lista_comandos.size() >= 4:
-		comprobar_combo()
-		
-
-func comprobar_combo():
-	var ultimos4 = lista_comandos.slice(-4)
-	
-	match ultimos4:
-		["Pata","Pata","Pata","Pon"]:
-			print("ATAQUEEERRR")
-			#EMITIMOS SEÑAL
-		_:
-			print("te tropezaste")
-			#señal
-	
-	resetear_combo()
-
-func registrar_input(tipo):
-	lista_comandos.append(tipo)
-	
-	if lista_comandos.size() >= 4:
-		pass
 
 
 func resetear_combo():
@@ -119,7 +98,11 @@ func _on_timer_timeout() -> void:
 	timer.wait_time = intervalo_beat
 	timer.start()
 	
-	
+
+func _on_win_round():
+	lista_comandos.clear()
+
+
 func enviar_bit():
 	var bit = BIT.instantiate()
 	var bit2 = BIT.instantiate()
