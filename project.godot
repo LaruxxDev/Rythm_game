@@ -14,6 +14,10 @@ config/name="Rythm_Game"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Signalbus="*uid://cnbdqvb1wm645"
+
 [input]
 
 fuego={
