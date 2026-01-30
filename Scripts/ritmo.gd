@@ -103,15 +103,18 @@ func _on_nuevo_beat():
 	tween.tween_callback(func(): ui_beat.visible = false)
 
 func _on_timer_timeout() -> void:
-	print(ultimo_beat)
 	timer.wait_time = intervalo_beat
 	timer.start()
 	
 	
 func enviar_bit():
 	var bit = BIT.instantiate()
+	var bit2 = BIT.instantiate()
+	$Spawner2.add_child(bit2)
 	$Spawner.add_child(bit)
-	var tween: Tween = get_tree().create_tween()
+	var tween: Tween = get_tree().create_tween().set_parallel(true)
 	tween.tween_property(bit, "global_position", $Sprite2D.global_position, intervalo_beat)
+	tween.tween_property(bit2, "global_position", $Sprite2D.global_position, intervalo_beat)
 	await tween.finished
 	bit.queue_free()
+	bit2.queue_free()
