@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var bpm : int = 120
+@export var bpm : int = 100
 @export var margen : float = 0.20 # Margen de error 
 var ultimo_beat = -1
 
@@ -12,15 +12,19 @@ var intervalo_beat = 0.0
 
 @onready var musica = $AudioStreamPlayer
 @onready var ui_beat = $CanvasLayer/ColorRect
+@onready var timer: Timer = $Timer
+const BIT = preload("uid://oplnfghwhb2l")
+
 func _ready() -> void:
 	ui_beat.visible = false
-	intervalo_beat = 60.0 / bpm
-	Signalbus.connect("nuevo_beat",_on_nuevo_beat)
+	intervalo_beat = 60.0 / bpm 
+	timer.wait_time = intervalo_beat
+	Signalbus.nuevo_beat.connect(_on_nuevo_beat)
 	
 	if not musica.playing:
 		musica.play()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	if not musica.playing:
 		return
@@ -32,8 +36,9 @@ func _physics_process(delta: float) -> void:
 	var beat_actual = int(pos_cancion / intervalo_beat)
 	if beat_actual > ultimo_beat:
 		ultimo_beat = beat_actual
+		enviar_bit()
 		_on_nuevo_beat()
-		#emit_signal("nuevo_beat")
+		Signalbus.nuevo_beat.emit()
 	
 	var index_beat_cercano = round(pos_cancion / intervalo_beat)
 	var time_beat_cercano = index_beat_cercano * intervalo_beat
@@ -47,7 +52,7 @@ func _physics_process(delta: float) -> void:
 		intentar_beat("Pon", time_margen, index_beat_cercano)
 	elif Input.is_action_just_pressed("ui_right"):
 		intentar_beat("Pata", time_margen, index_beat_cercano)
-	pass
+
 
 func intentar_beat(tipo, time_margen, beat):
 	if beat == hit_beat:
@@ -90,7 +95,26 @@ func resetear_combo():
 
 func _on_nuevo_beat():
 	ui_beat.visible = true
+
 	var tween = create_tween()
+	
 	tween.tween_interval(margen)
 	
 	tween.tween_callback(func(): ui_beat.visible = false)
+
+func _on_timer_timeout() -> void:
+	timer.wait_time = intervalo_beat
+	timer.start()
+	
+	
+func enviar_bit():
+	var bit = BIT.instantiate()
+	var bit2 = BIT.instantiate()
+	$Spawner2.add_child(bit2)
+	$Spawner.add_child(bit)
+	var tween: Tween = get_tree().create_tween().set_parallel(true)
+	tween.tween_property(bit, "global_position", $Sprite2D.global_position, intervalo_beat)
+	tween.tween_property(bit2, "global_position", $Sprite2D.global_position, intervalo_beat)
+	await tween.finished
+	bit.queue_free()
+	bit2.queue_free()
