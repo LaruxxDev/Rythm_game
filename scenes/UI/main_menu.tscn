@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://du5mqhvtuowhm"]
 
-[ext_resource type="Script" uid="uid://dhthrukf26xo3" path="res://scripts/UI/main_menu.gd" id="1_qwnig"]
+[ext_resource type="Script" uid="uid://dhthrukf26xo3" path="res://Scripts/UI/main_menu.gd" id="1_qwnig"]
+[ext_resource type="PackedScene" uid="uid://c6ax0kwue82my" path="res://Scenes/mapa.tscn" id="2_i2xx2"]
 
 [node name="MainMenu" type="Control" unique_id=476158060]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qwnig")
+gameScene = ExtResource("2_i2xx2")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1703308754]
 layout_mode = 1
@@ -41,5 +43,10 @@ text = "Jugar"
 layout_mode = 2
 text = "Opciones"
 
+[node name="leaderboardButton" type="Button" parent="VBoxContainer" unique_id=448810531]
+layout_mode = 2
+text = "High Scores"
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/leaderboardButton" to="." method="_on_leaderboard_button_pressed"]

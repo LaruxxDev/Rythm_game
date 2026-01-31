@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Rythm_Game"
+run/main_scene="uid://du5mqhvtuowhm"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -18,11 +19,16 @@ config/icon="res://icon.svg"
 
 Signalbus="*uid://cnbdqvb1wm645"
 LifeManager="*uid://mxl5em3acn3p"
+Talo="*uid://cf5txmco4tia4"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/talo/plugin.cfg")
 
 [input]
 

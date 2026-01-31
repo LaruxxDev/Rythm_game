@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://1wepnaod4xfb"]
+
+[ext_resource type="Script" uid="uid://bm8vnmp3g7kka" path="res://Scripts/UI/entry_leaderboard.gd" id="1_bt5mp"]
+
+[node name="EntryLeaderboard" type="Label" unique_id=1815516811]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bt5mp")
