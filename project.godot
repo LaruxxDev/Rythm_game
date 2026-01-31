@@ -21,7 +21,6 @@ LifeManager="*uid://mxl5em3acn3p"
 
 [display]
 
-window/size/mode=3
 window/size/resizable=false
 window/stretch/scale_mode="integer"
 

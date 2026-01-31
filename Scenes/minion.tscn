@@ -139,13 +139,14 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0atx"]
-radius = 57.870544
+radius = 27.45906
 
 [node name="Minion" type="CharacterBody2D" unique_id=1898012620]
 collision_layer = 2
 script = ExtResource("1_fb4sf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1768566643]
+scale = Vector2(0.4921875, 0.4921875)
 sprite_frames = SubResource("SpriteFrames_s0atx")
 animation = &"Tierra_attack"
 
