@@ -35,7 +35,6 @@ func _physics_process(_delta: float) -> void:
 	pos_cancion -= AudioServer.get_output_latency()
 	#Beat actual (ejm: 1 )
 	var beat_actual = int(pos_cancion / intervalo_beat)
-	print(beat_actual)
 	if ultimo_beat > beat_actual:
 		ultimo_beat = -1
 	if beat_actual > ultimo_beat:
