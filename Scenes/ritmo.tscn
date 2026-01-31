@@ -2,14 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c8uppgfp7h7k5" path="res://Scripts/ritmo.gd" id="1_316ka"]
 [ext_resource type="AudioStream" uid="uid://gbbyhrvmf4r6" path="res://Assets/Songs/musica_base.wav" id="2_316ka"]
+[ext_resource type="AudioStream" uid="uid://cn4owhsq7to2u" path="res://Assets/Songs/Claqueta.wav" id="3_yomdr"]
 
 [node name="Ritmo" type="Node2D" unique_id=1441584467]
 script = ExtResource("1_316ka")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1857800486]
-stream = ExtResource("2_316ka")
-autoplay = true
-bus = &"Base"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=957661181]
 custom_minimum_size = Vector2(30, 30)
@@ -36,5 +32,15 @@ position = Vector2(370, 40)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=595490150]
 position = Vector2(570, 40)
+
+[node name="Base" type="AudioStreamPlayer" parent="." unique_id=1857800486]
+stream = ExtResource("2_316ka")
+autoplay = true
+bus = &"Base"
+
+[node name="Claqueta" type="AudioStreamPlayer" parent="." unique_id=1424893096]
+stream = ExtResource("3_yomdr")
+autoplay = true
+bus = &"Base"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -2,7 +2,7 @@ extends Node2D
 
 const BIT = preload("uid://oplnfghwhb2l")
 
-@export var bpm : int = 100
+@export var bpm : int = 120
 @export var margen : float = 0.20 # Margen de error 
 var ultimo_beat = -1
 
@@ -12,7 +12,7 @@ var lista_comandos = []
 
 var intervalo_beat = 0.0
 
-@onready var musica = $AudioStreamPlayer
+@onready var musica = $Base
 @onready var ui_beat = $ColorRect
 @onready var timer: Timer = $Timer
 
@@ -33,9 +33,11 @@ func _physics_process(_delta: float) -> void:
 
 	var pos_cancion = musica.get_playback_position() + AudioServer.get_time_since_last_mix() #Posicion de la cancion
 	pos_cancion -= AudioServer.get_output_latency()
-	
 	#Beat actual (ejm: 1 )
 	var beat_actual = int(pos_cancion / intervalo_beat)
+	print(beat_actual)
+	if ultimo_beat > beat_actual:
+		ultimo_beat = -1
 	if beat_actual > ultimo_beat:
 		ultimo_beat = beat_actual
 		enviar_bit()
