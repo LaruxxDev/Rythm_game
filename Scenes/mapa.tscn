@@ -138,6 +138,8 @@ position = Vector2(-118, 529)
 position = Vector2(79, 529)
 
 [node name="Ritmo" parent="." unique_id=1441584467 instance=ExtResource("3_vm3su")]
+bpm = 120
+margen = 0.3
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1115279667]
 
