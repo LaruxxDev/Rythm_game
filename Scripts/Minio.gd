@@ -16,7 +16,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready() -> void:
 	tipo_random()
 	moverse()
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 	if position.distance_to(posicion) < 5:
 		velocity.x = 0
 	else:

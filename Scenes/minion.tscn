@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://d4ka1nlwrsu5c"]
 
-[ext_resource type="Script" uid="uid://blratx7kxk2ob" path="res://Minio.gd" id="1_fb4sf"]
+[ext_resource type="Script" uid="uid://blratx7kxk2ob" path="res://Scripts/Minio.gd" id="1_s0atx"]
 [ext_resource type="Texture2D" uid="uid://djkkcxkd57f61" path="res://icon.svg" id="2_s0atx"]
+[ext_resource type="PackedScene" uid="uid://1dutxueq6puo" path="res://Scenes/UI/bocadillo.tscn" id="3_f5x54"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f5x54"]
 atlas = ExtResource("2_s0atx")
@@ -143,7 +144,7 @@ radius = 27.45906
 
 [node name="Minion" type="CharacterBody2D" unique_id=1898012620]
 collision_layer = 2
-script = ExtResource("1_fb4sf")
+script = ExtResource("1_s0atx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1768566643]
 scale = Vector2(0.4921875, 0.4921875)
@@ -152,3 +153,9 @@ animation = &"Tierra_attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=868186069]
 shape = SubResource("CircleShape2D_s0atx")
+
+[node name="Bocadillo" parent="." unique_id=1772096548 instance=ExtResource("3_f5x54")]
+offset_left = 22.0
+offset_top = -143.0
+offset_right = 390.055
+offset_bottom = 117.72223
