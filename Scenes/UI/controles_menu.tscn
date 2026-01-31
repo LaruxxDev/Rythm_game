@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dpnn6eswj34tn" path="res://Scripts/UI/controles_menu.gd" id="1_mfd7x"]
 [ext_resource type="Texture2D" uid="uid://djkkcxkd57f61" path="res://icon.svg" id="1_uwe0x"]
+[ext_resource type="PackedScene" uid="uid://copfxmxci3l81" path="res://Scenes/UI/controles.tscn" id="3_mc0sm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwe0x"]
 
@@ -14,6 +15,7 @@ border_width_bottom = 5
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kk25c"]
 
 [node name="ControlesMenu" type="Control" unique_id=1641072976]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,6 +57,9 @@ metadata/_tab_index = 0
 [node name="keyboardImage" type="TextureRect" parent="TabContainer/Keyboard" unique_id=1665173460]
 layout_mode = 2
 texture = ExtResource("1_uwe0x")
+
+[node name="Control" parent="TabContainer/Keyboard/keyboardImage" unique_id=1343091027 instance=ExtResource("3_mc0sm")]
+layout_mode = 0
 
 [node name="Mando" type="PanelContainer" parent="TabContainer" unique_id=1216429288]
 visible = false

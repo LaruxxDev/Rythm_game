@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clecevkgq2qya" path="res://Scripts/UI/bocadillo.gd" id="1_72tjb"]
 [ext_resource type="Texture2D" uid="uid://cl1xpjsvu2sme" path="res://Assets/Bocata_hud_x4.png" id="1_kifcw"]
-[ext_resource type="Script" uid="uid://dgitavqfqeyud" path="res://Scenes/UI/AnimatedRichTextLabel.gd" id="3_cvkqe"]
+[ext_resource type="Script" uid="uid://dgitavqfqeyud" path="res://Scripts/UI/AnimatedRichTextLabel.gd" id="3_cvkqe"]
 
 [node name="Bocadillo" type="TextureRect" unique_id=1772096548]
 texture_filter = 1
