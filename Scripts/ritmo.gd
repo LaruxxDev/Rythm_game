@@ -27,9 +27,9 @@ func _ready() -> void:
 		musica.play()
 
 func _physics_process(_delta: float) -> void:
-	
 	if not musica.playing:
-		return
+		musica.play()
+		print(3333)
 
 	var pos_cancion = musica.get_playback_position() + AudioServer.get_time_since_last_mix() #Posicion de la cancion
 	pos_cancion -= AudioServer.get_output_latency()
@@ -41,7 +41,7 @@ func _physics_process(_delta: float) -> void:
 		enviar_bit()
 		_on_nuevo_beat()
 		Signalbus.nuevo_beat.emit()
-	
+
 	var index_beat_cercano = round(pos_cancion / intervalo_beat)
 	var time_beat_cercano = index_beat_cercano * intervalo_beat
 	var time_margen = abs(pos_cancion - time_beat_cercano)
