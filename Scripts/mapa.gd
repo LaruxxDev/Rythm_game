@@ -5,14 +5,20 @@ extends Node2D
 @onready var tierra: CharacterBody2D = $Player/Tierra
 @onready var planta: CharacterBody2D = $Player/Planta
 @onready var pos_player: Marker2D = $PosPlayer
-@export var distancia  =Vector2(80.0,0.0)
+@export var distancia = Vector2(80.0,0.0)
 @onready var pos_enemy: Marker2D = $PosEnemy
 
 const MINION = preload("uid://d4ka1nlwrsu5c")
 
 var lista_enemies = []
+var ronda = 0
 
 func _ready() -> void:
+	Signalbus.agua.connect(_on_agua)
+	Signalbus.fuego.connect(_on_fuego)
+	Signalbus.tierra.connect(_on_tierra)
+	Signalbus.planta.connect(_on_planta)
+
 	mover_player()
 	start_round()
 
@@ -32,12 +38,15 @@ func mover_enemy():
 
 
 func start_round():
+	ronda += 1
 	randomize()
 	var num = randi_range(3,7)
 	for i in num:
 		spawn_enemies()
-	mover_enemy()
+	await mover_enemy()
+	await get_tree().create_timer(5).timeout
 
+	
 func spawn_enemies():
 	var enemi = MINION.instantiate()
 	$Enemies.add_child(enemi)
@@ -45,14 +54,34 @@ func spawn_enemies():
 	print($Enemies.global_position)
 	lista_enemies.append(enemi)
 
+
+func _on_agua():
+	if !lista_enemies.is_empty():
+		if lista_enemies[-1].take_damage("Agua"):
+			lista_enemies.pop_back()
+	else:
+		start_round()
+
+func _on_fuego():
+	if !lista_enemies.is_empty():
+		if lista_enemies[-1].take_damage("Fuego"):
+			lista_enemies.pop_back()
+	else:
+		start_round()
 	
-	
-	
-	
-	
-	
-	
-	
+func _on_tierra():
+	if !lista_enemies.is_empty():
+		if lista_enemies[-1].take_damage("Tierra"):
+			lista_enemies.pop_back()
+	else:
+		start_round()
+
+func _on_planta():
+	if !lista_enemies.is_empty():
+		if lista_enemies[-1].take_damage("Planta"):
+			lista_enemies.pop_back()
+	else:
+		start_round()
 	
 	
 	

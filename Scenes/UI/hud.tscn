@@ -67,4 +67,3 @@ text = "Ronda: 1"
 layout_mode = 2
 texture = SubResource("AtlasTexture_fdl0h")
 expand_mode = 2
-flip_v = true
