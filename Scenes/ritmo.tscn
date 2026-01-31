@@ -44,7 +44,6 @@ bus = &"Base"
 
 [node name="Claqueta" type="AudioStreamPlayer" parent="." unique_id=1424893096]
 stream = ExtResource("3_yomdr")
-pitch_scale = 0.5
 autoplay = true
 
 [node name="Tiki" type="AudioStreamPlayer" parent="." unique_id=928214606]
@@ -60,11 +59,11 @@ bus = &"Japo"
 [node name="Tragicomedia" type="AudioStreamPlayer" parent="." unique_id=63049255]
 stream = ExtResource("6_s8ayg")
 autoplay = true
-bus = &"Japo"
+bus = &"Tragi"
 
 [node name="Plaga" type="AudioStreamPlayer" parent="." unique_id=566787052]
 stream = ExtResource("7_23brj")
 autoplay = true
-bus = &"Japo"
+bus = &"Plaga"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
