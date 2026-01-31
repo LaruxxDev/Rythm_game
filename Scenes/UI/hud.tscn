@@ -59,7 +59,7 @@ layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("1_ny26j")
 
-[node name="Label" type="Label" parent="HBoxContainer" unique_id=1992421517]
+[node name="Rondas" type="Label" parent="HBoxContainer" unique_id=1992421517]
 layout_mode = 2
 text = "Ronda: 1"
 

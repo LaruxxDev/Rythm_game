@@ -1,6 +1,7 @@
 extends Control
 
 @onready var vidas_container: HBoxContainer = $HBoxContainer/vidasContainer
+@onready var rondas: Label = $HBoxContainer/Rondas
 
 
 var hearts_list: Array[TextureRect]
@@ -15,3 +16,6 @@ func _ready() -> void:
 func update_lives():
 	for i in range(hearts_list.size()):
 		hearts_list[i].visible = false
+		
+func next_ronda(ronda:int):
+	rondas.text = "Ronda: " + str(ronda) 
