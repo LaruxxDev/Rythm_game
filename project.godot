@@ -21,8 +21,8 @@ LifeManager="*uid://mxl5em3acn3p"
 
 [display]
 
-window/size/resizable=false
-window/stretch/scale_mode="integer"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
 
 [input]
 

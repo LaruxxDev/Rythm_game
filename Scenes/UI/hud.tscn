@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bibvterjfeeyr"]
 
+[ext_resource type="Texture2D" uid="uid://bg33crhhun1s1" path="res://Assets/Heart_hud_x4.png" id="1_ny26j"]
 [ext_resource type="Texture2D" uid="uid://djkkcxkd57f61" path="res://icon.svg" id="2_fdl0h"]
 
 [node name="HUD" type="Control" unique_id=1441600353]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,40 +14,58 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1160467323]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -394.0
-offset_top = -128.0
-offset_right = 394.0
+offset_top = -132.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 300
+alignment = 1
 
 [node name="vidasContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=621131787]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="vida1" type="TextureRect" parent="HBoxContainer/vidasContainer" unique_id=1095438601]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/vidasContainer" unique_id=1092424786]
 layout_mode = 2
-texture = ExtResource("2_fdl0h")
 
-[node name="vida2" type="TextureRect" parent="HBoxContainer/vidasContainer" unique_id=1875209632]
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/vidasContainer/VBoxContainer" unique_id=757304537]
 layout_mode = 2
-texture = ExtResource("2_fdl0h")
 
-[node name="vida3" type="TextureRect" parent="HBoxContainer/vidasContainer" unique_id=38724966]
+[node name="vida1" type="TextureRect" parent="HBoxContainer/vidasContainer/VBoxContainer/HBoxContainer2" unique_id=1095438601]
 layout_mode = 2
-texture = ExtResource("2_fdl0h")
+size_flags_vertical = 4
+texture = ExtResource("1_ny26j")
 
-[node name="vida4" type="TextureRect" parent="HBoxContainer/vidasContainer" unique_id=1224977055]
+[node name="vida2" type="TextureRect" parent="HBoxContainer/vidasContainer/VBoxContainer/HBoxContainer2" unique_id=1875209632]
 layout_mode = 2
-texture = ExtResource("2_fdl0h")
+size_flags_vertical = 4
+texture = ExtResource("1_ny26j")
 
-[node name="vida5" type="TextureRect" parent="HBoxContainer/vidasContainer" unique_id=1701870677]
+[node name="vida3" type="TextureRect" parent="HBoxContainer/vidasContainer/VBoxContainer/HBoxContainer2" unique_id=38724966]
 layout_mode = 2
-texture = ExtResource("2_fdl0h")
+size_flags_vertical = 4
+texture = ExtResource("1_ny26j")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/vidasContainer/VBoxContainer" unique_id=2059755914]
+layout_mode = 2
+alignment = 1
+
+[node name="vida4" type="TextureRect" parent="HBoxContainer/vidasContainer/VBoxContainer/HBoxContainer" unique_id=1224977055]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_ny26j")
+
+[node name="vida5" type="TextureRect" parent="HBoxContainer/vidasContainer/VBoxContainer/HBoxContainer" unique_id=1701870677]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_ny26j")
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1992421517]
+layout_mode = 2
+text = "Ronda: 1"
 
 [node name="elementos" type="TextureRect" parent="HBoxContainer" unique_id=2085090216]
 layout_mode = 2
