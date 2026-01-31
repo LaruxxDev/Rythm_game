@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://boocacfjd0maf"]
+
+[ext_resource type="Texture2D" uid="uid://djkkcxkd57f61" path="res://icon.svg" id="1_5qwf0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26mn2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5qwf0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MaskHUD" type="Control" unique_id=1370445093]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 165.0
+offset_bottom = 165.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1795630787]
+sprite_frames = SubResource("SpriteFrames_26mn2")
