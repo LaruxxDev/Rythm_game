@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	
 func handel_animacion():
 	if velocity.x != 0:
-		animacion.play(str(tipo,"_walk"))
+		animacion.play(str(tipo,"_idle"))
 	else:
 		animacion.play(str(tipo,"_idle"))
 	if velocity.x > 0:
@@ -50,10 +50,9 @@ func elegir_animacion():
 	animacion.play(str(tipo,"_idle"))
 
 func take_damage(atq_tipo):
-	if tipo == list_tipos[atq_tipo]:
+	if atq_tipo == list_tipos[tipo]:
 		muerte()
 		return true
-		print(222)
 	else:
 		Signalbus.fallo.emit()
 		return false

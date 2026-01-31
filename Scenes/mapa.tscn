@@ -229,9 +229,11 @@ position = Vector2(75, -119)
 
 [node name="Fuego" parent="Player" unique_id=1238246151 instance=ExtResource("1_goa42")]
 position = Vector2(-340, 529)
+tipo = "Fuego"
 
 [node name="Agua" parent="Player" unique_id=228042119 instance=ExtResource("1_goa42")]
 position = Vector2(-118, 529)
+tipo = "Agua"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Player/Agua" unique_id=1519277189]
 visible = false
@@ -244,9 +246,11 @@ frame_progress = 0.35221484
 
 [node name="Tierra" parent="Player" unique_id=1547403895 instance=ExtResource("1_goa42")]
 position = Vector2(-188, 529)
+tipo = "Tierra"
 
 [node name="Planta" parent="Player" unique_id=1546106958 instance=ExtResource("1_goa42")]
 position = Vector2(-260, 529)
+tipo = "Planta"
 
 [node name="PosPlayer" type="Marker2D" parent="." unique_id=1562163717]
 position = Vector2(82, 412)

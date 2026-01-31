@@ -1,34 +1,49 @@
 [gd_scene format=3 uid="uid://d4ka1nlwrsu5c"]
 
 [ext_resource type="Script" uid="uid://blratx7kxk2ob" path="res://Scripts/Minio.gd" id="1_s0atx"]
-[ext_resource type="Texture2D" uid="uid://djkkcxkd57f61" path="res://icon.svg" id="2_s0atx"]
+[ext_resource type="Texture2D" uid="uid://cvmmxk74d0ees" path="res://Assets/Troops_x4.png" id="3_co1s6"]
 [ext_resource type="PackedScene" uid="uid://1dutxueq6puo" path="res://Scenes/UI/bocadillo.tscn" id="3_f5x54"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f5x54"]
-atlas = ExtResource("2_s0atx")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl8o6"]
+atlas = ExtResource("3_co1s6")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i6jl"]
+atlas = ExtResource("3_co1s6")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co1s6"]
+atlas = ExtResource("3_co1s6")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0j0a"]
+atlas = ExtResource("3_co1s6")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwjsk"]
+atlas = ExtResource("3_co1s6")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lhh2"]
+atlas = ExtResource("3_co1s6")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ire54"]
+atlas = ExtResource("3_co1s6")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc7ox"]
+atlas = ExtResource("3_co1s6")
+region = Rect2(64, 256, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s0atx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
-}],
-"loop": true,
-"name": &"Agua_attack",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_fl8o6")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
-}],
-"loop": true,
-"name": &"Agua_dead",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
+"texture": SubResource("AtlasTexture_0i6jl")
 }],
 "loop": true,
 "name": &"Agua_idle",
@@ -36,31 +51,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
-}],
-"loop": true,
-"name": &"Agua_walk",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_co1s6")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
-}],
-"loop": true,
-"name": &"Fuego_attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
-}],
-"loop": true,
-"name": &"Fuego_dead",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
+"texture": SubResource("AtlasTexture_b0j0a")
 }],
 "loop": true,
 "name": &"Fuego_idle",
@@ -68,31 +62,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
-}],
-"loop": true,
-"name": &"Fuego_walk",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_vwjsk")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
-}],
-"loop": true,
-"name": &"Planta_attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
-}],
-"loop": true,
-"name": &"Planta_dead",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
+"texture": SubResource("AtlasTexture_6lhh2")
 }],
 "loop": true,
 "name": &"Planta_idle",
@@ -100,58 +73,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
-}],
-"loop": true,
-"name": &"Planta_walk",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_ire54")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
-}],
-"loop": true,
-"name": &"Tierra_attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
-}],
-"loop": true,
-"name": &"Tierra_dead",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
+"texture": SubResource("AtlasTexture_hc7ox")
 }],
 "loop": true,
 "name": &"Tierra_idle",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f5x54")
-}],
-"loop": true,
-"name": &"Tierra_walk",
-"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0atx"]
-radius = 27.45906
+radius = 15.033297
 
 [node name="Minion" type="CharacterBody2D" unique_id=1898012620]
+texture_filter = 1
+scale = Vector2(1.8729587, 1.8729587)
 collision_layer = 2
 script = ExtResource("1_s0atx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1768566643]
 scale = Vector2(0.4921875, 0.4921875)
 sprite_frames = SubResource("SpriteFrames_s0atx")
-animation = &"Tierra_attack"
+animation = &"Agua_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=868186069]
+position = Vector2(1.6017439, 1.6017439)
 shape = SubResource("CircleShape2D_s0atx")
 
 [node name="Bocadillo" parent="." unique_id=1772096548 instance=ExtResource("3_f5x54")]
