@@ -1,0 +1,29 @@
+{
+  "name": "controller-mapping-templates",
+  "version": "1.0.0",
+  "description": "Templates for controller mapping images, made with Adobe Illustrator",
+  "main": "templates.ai",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "open templates.ai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickesc/controller-mapping-templates.git"
+  },
+  "keywords": [
+    "gamedev",
+    "keybinds",
+    "graphic",
+    "design",
+    "illustrator"
+  ],
+  "author": "N. Escobar <nick@nescobar.media> (https://nickesc.github.io/)",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/nickesc/controller-mapping-templates/issues"
+  },
+  "homepage": "https://nickesc.itch.io/controller-mapping-templates"
+}
