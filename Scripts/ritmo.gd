@@ -9,7 +9,7 @@ var ultimo_beat = -1
 var historial = -1
 var hit_beat = -1
 var lista_comandos = []
-
+var lista_enemigos= []
 var intervalo_beat = 0.0
 
 @onready var musica = $Base
@@ -71,15 +71,16 @@ func intentar_beat(time_margen, beat):
 	if beat == hit_beat or beat == historial+1:
 		Signalbus.fallo.emit()
 		print("NO SPAMES POLLUELO")
-		return
+		return false
 	if not lista_comandos.is_empty() and lista_comandos[lista_comandos.size()-1] != beat-1:
 		Signalbus.fallo.emit()
 		resetear_combo()
 		print("te as saltado 1")
-		return
+		return false
 	
 	if time_margen <= margen:
 		print("Perfecto!! Beat: ", beat, " - ",time_margen)
+		
 		hit_beat = beat
 		lista_comandos.append(beat)
 		return true
@@ -105,23 +106,17 @@ func _on_timer_timeout() -> void:
 	timer.wait_time = intervalo_beat
 	timer.start()
 	
-
 func _on_win_round():
 	lista_comandos.clear()
 	
-
 func _on_tiki_mask():
 	play_masks("Tiki")
-
-
 
 func _on_japo_mask():
 	play_masks("Japo")
 
-
 func _on_tragicomedia_mask():
 	play_masks("Tragi")
-
 
 func _on_plaga_mask():
 	play_masks("Plaga")
@@ -132,20 +127,16 @@ func _on_mask_off():
 	mute_masks("Tragi")
 	mute_masks("Plaga")
 
-
 func play_masks(tipo:String):
 	var index = AudioServer.get_bus_index(tipo)
 	var tween: Tween = create_tween()
 	tween.tween_method(func(val):AudioServer.set_bus_volume_db(index,val),-80.0, -0,1 )
 	mute_masks("Base")
 
-
 func mute_masks(tipo:String):
 	var index = AudioServer.get_bus_index(tipo)
 	var tween: Tween = create_tween()
 	tween.tween_method(func(val):AudioServer.set_bus_volume_db(index,val),0, -80.0,1 )
-
-
 
 func enviar_bit():
 	var bit = BIT.instantiate()

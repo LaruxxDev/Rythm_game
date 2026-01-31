@@ -52,10 +52,13 @@ func elegir_animacion():
 func take_damage(atq_tipo):
 	if tipo == list_tipos[atq_tipo]:
 		muerte()
+		print(222)
+	else:
+		Signalbus.fallo.emit()
 
 
 func muerte():
-	animacion.play(str(tipo,"_dead"))
-	await get_tree().create_timer(2).timeout
+	#animacion.play(str(tipo,"_dead"))
+	#await get_tree().create_timer(2).timeout
 	
 	queue_free()

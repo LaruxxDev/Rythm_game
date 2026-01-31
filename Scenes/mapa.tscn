@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cs4mgfaewo6v1" path="res://Assets/Scenario_tilesetnube_x4.png" id="7_1lxf8"]
 [ext_resource type="Script" uid="uid://cmoipy5nprbak" path="res://Scripts/suelo.gd" id="7_ykhg3"]
 [ext_resource type="PackedScene" uid="uid://bibvterjfeeyr" path="res://Scenes/UI/hud.tscn" id="8_v1efw"]
-[ext_resource type="Script" path="res://Scripts/UI/nuebe2.gd" id="8_yq38d"]
+[ext_resource type="Script" uid="uid://cwn24hu57oybm" path="res://Scripts/UI/nuebe2.gd" id="8_yq38d"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q3a25"]
 
