@@ -114,11 +114,11 @@ script = ExtResource("1_p41nb")
 position = Vector2(0, 578)
 shape = SubResource("WorldBoundaryShape2D_q3a25")
 
-[node name="Minion" parent="." unique_id=1898012620 instance=ExtResource("1_goa42")]
-position = Vector2(1704, 500)
+[node name="PosEnemy" type="Marker2D" parent="." unique_id=2056985050]
+position = Vector2(1096, 529)
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=2056985050]
-position = Vector2(976, 529)
+[node name="Enemies" type="Node2D" parent="." unique_id=1934567898]
+position = Vector2(1836, 498)
 
 [node name="Player" type="Node2D" parent="." unique_id=1475129387]
 
