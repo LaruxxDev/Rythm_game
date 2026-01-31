@@ -54,21 +54,34 @@ func spawn_enemies():
 	print($Enemies.global_position)
 	lista_enemies.append(enemi)
 
-func _on_agua():
-	lista_enemies[-1].take_damage("Agua")
-	
-func _on_fuego():
-	lista_enemies[-1].take_damage("Fuego")
 
+func _on_agua():
+	if !lista_enemies.is_empty():
+		if lista_enemies[-1].take_damage("Agua"):
+			lista_enemies.pop_back()
+	else:
+		start_round()
+
+func _on_fuego():
+	if !lista_enemies.is_empty():
+		if lista_enemies[-1].take_damage("Fuego"):
+			lista_enemies.pop_back()
+	else:
+		start_round()
 	
 func _on_tierra():
-	lista_enemies[-1].take_damage("Tierra")
+	if !lista_enemies.is_empty():
+		if lista_enemies[-1].take_damage("Tierra"):
+			lista_enemies.pop_back()
+	else:
+		start_round()
 
-	
 func _on_planta():
-	lista_enemies[-1].take_damage("Planta")
-
-	
+	if !lista_enemies.is_empty():
+		if lista_enemies[-1].take_damage("Planta"):
+			lista_enemies.pop_back()
+	else:
+		start_round()
 	
 	
 	

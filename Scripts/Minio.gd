@@ -52,9 +52,12 @@ func elegir_animacion():
 func take_damage(atq_tipo):
 	if tipo == list_tipos[atq_tipo]:
 		muerte()
+		return true
 		print(222)
 	else:
 		Signalbus.fallo.emit()
+		return false
+
 
 
 func muerte():
