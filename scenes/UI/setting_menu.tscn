@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://b4asuqww6hihh"]
+
+[ext_resource type="Script" uid="uid://4gtl0f7q2172" path="res://Scripts/UI/setting_menu.gd" id="1_4tahm"]
+[ext_resource type="PackedScene" uid="uid://b1tfalpbqlrje" path="res://Scenes/UI/controles_menu.tscn" id="3_ic6bc"]
+[ext_resource type="PackedScene" uid="uid://dovoymn2mu03g" path="res://Scenes/UI/video_menu.tscn" id="4_3pxrf"]
+[ext_resource type="PackedScene" uid="uid://d0u5oogqwi0wl" path="res://Scenes/UI/sound_menu.tscn" id="6_yfshn"]
+
+[node name="SettingMenu" type="Control" unique_id=796581230]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4tahm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1923359278]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13561687, 0.13561687, 0.13561687, 1)
+
+[node name="Title" type="Label" parent="." unique_id=1813251290]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -415.0
+offset_top = 96.0
+offset_right = -190.0
+offset_bottom = 165.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Opciones"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=275769677]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = -103.0
+offset_right = 41.5
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlsButton" type="Button" parent="VBoxContainer" unique_id=1318972483]
+layout_mode = 2
+text = "Controles"
+
+[node name="SoundButton" type="Button" parent="VBoxContainer" unique_id=1746017480]
+layout_mode = 2
+text = "Sonido"
+
+[node name="VideoButton" type="Button" parent="VBoxContainer" unique_id=1924561653]
+layout_mode = 2
+text = "Video"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=1177829575]
+layout_mode = 2
+text = "Créditos"
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer" unique_id=2093833589]
+layout_mode = 2
+text = "Volver"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=1487350478]
+layout_mode = 2
+text = "Salir"
+
+[node name="SoundMenu" parent="." unique_id=391373449 instance=ExtResource("6_yfshn")]
+visible = false
+layout_mode = 1
+
+[node name="VideoMenu" parent="." unique_id=663334806 instance=ExtResource("4_3pxrf")]
+visible = false
+layout_mode = 1
+
+[node name="ControlesMenu" parent="." unique_id=1641072976 instance=ExtResource("3_ic6bc")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SoundButton" to="." method="_on_sound_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VideoButton" to="." method="_on_video_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

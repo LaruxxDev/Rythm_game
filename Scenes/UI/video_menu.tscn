@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dovoymn2mu03g"]
+
+[ext_resource type="Script" uid="uid://c8uw8gqeyk2em" path="res://Scripts/UI/video_menu.gd" id="1_s2vx6"]
+
+[node name="VideoMenu" type="Control" unique_id=663334806]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s2vx6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=529383523]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09112144, 0.09112146, 0.09112144, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1261618135]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -65.5
+offset_right = 60.0
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="LabelContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1869107093]
+layout_mode = 2
+
+[node name="ScreenMode" type="Label" parent="HBoxContainer/LabelContainer" unique_id=2123542662]
+layout_mode = 2
+text = "Pantalla Completa"
+
+[node name="Container2" type="VBoxContainer" parent="HBoxContainer" unique_id=726424793]
+layout_mode = 2
+
+[node name="OptionButton" type="CheckButton" parent="HBoxContainer/Container2" unique_id=238597127]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="." unique_id=1646577669]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -28.5
+offset_top = -121.03998
+offset_right = 28.5
+offset_bottom = -90.03998
+grow_horizontal = 2
+grow_vertical = 0
+text = "Volver"
+
+[connection signal="toggled" from="HBoxContainer/Container2/OptionButton" to="." method="_on_option_button_toggled"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

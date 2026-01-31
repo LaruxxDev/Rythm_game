@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://d0u5oogqwi0wl"]
+
+[ext_resource type="Script" uid="uid://bgom3v82ioyim" path="res://Scripts/UI/sound_menu.gd" id="1_iehck"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fttt8"]
+content_margin_left = 100.0
+content_margin_top = 5.0
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="SoundMenu" type="Control" unique_id=391373449]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iehck")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=532671544]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13333334, 0.13333334, 0.13333334, 0.6901961)
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1402337080]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.5
+offset_top = -49.5
+offset_right = 79.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="LabelsContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1257673098]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="MasterLabel" type="Label" parent="VBoxContainer/LabelsContainer" unique_id=1773714492]
+layout_mode = 2
+text = "Master"
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer/LabelsContainer" unique_id=195978625]
+layout_mode = 2
+text = "Música"
+
+[node name="FVXLabel" type="Label" parent="VBoxContainer/LabelsContainer" unique_id=1159910816]
+layout_mode = 2
+text = "Efectos"
+
+[node name="SlidersContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=180441478]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer/SlidersContainer" unique_id=228499950]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_fttt8")
+value = 100.0
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/SlidersContainer" unique_id=1671711048]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_fttt8")
+value = 100.0
+
+[node name="FVXSlider" type="HSlider" parent="VBoxContainer/SlidersContainer" unique_id=355175756]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_fttt8")
+value = 100.0
+
+[node name="BackButton" type="Button" parent="." unique_id=1663138877]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -98.0
+offset_right = 4.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Volver"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
