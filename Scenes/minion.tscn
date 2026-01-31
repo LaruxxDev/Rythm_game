@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d4ka1nlwrsu5c"]
+
+[ext_resource type="Script" uid="uid://blratx7kxk2ob" path="res://Minio.gd" id="1_fb4sf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0atx"]
+
+[node name="Minion" type="Node2D" unique_id=860225449]
+script = ExtResource("1_fb4sf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1768566643]
+sprite_frames = SubResource("SpriteFrames_s0atx")
