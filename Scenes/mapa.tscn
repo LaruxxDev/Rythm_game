@@ -17,7 +17,6 @@ shape = SubResource("WorldBoundaryShape2D_q3a25")
 
 [node name="Minion" parent="." unique_id=1898012620 instance=ExtResource("1_goa42")]
 position = Vector2(1704, 500)
-posicion = Vector2(976, 500)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2056985050]
 position = Vector2(976, 529)
@@ -26,19 +25,15 @@ position = Vector2(976, 529)
 
 [node name="Fuego" parent="Player" unique_id=1238246151 instance=ExtResource("1_goa42")]
 position = Vector2(-340, 529)
-tipo = "Fuego"
 
 [node name="Agua" parent="Player" unique_id=228042119 instance=ExtResource("1_goa42")]
 position = Vector2(-260, 529)
-tipo = "Agua"
 
 [node name="Tierra" parent="Player" unique_id=1547403895 instance=ExtResource("1_goa42")]
 position = Vector2(-188, 529)
-tipo = "Tierra"
 
 [node name="Planta" parent="Player" unique_id=1546106958 instance=ExtResource("1_goa42")]
 position = Vector2(-118, 529)
-tipo = "Planta"
 
 [node name="PosPlayer" type="Marker2D" parent="." unique_id=1562163717]
 position = Vector2(79, 529)
