@@ -1,3 +1,76 @@
 [gd_scene format=3 uid="uid://bvwyu1mkklmjo"]
 
-[node name="Leaderboard" type="Node2D" unique_id=707657981]
+[ext_resource type="Script" uid="uid://c2w8ndraqk8ti" path="res://Scripts/UI/leaderboard.gd" id="1_7f0wt"]
+
+[node name="Leaderboard" type="Node2D" unique_id=1718812778]
+script = ExtResource("1_7f0wt")
+leaderboard_internal_name = "scores"
+
+[node name="UI" type="Control" parent="." unique_id=1750829622]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 168.0
+
+[node name="ColorRect" type="ColorRect" parent="UI" unique_id=925952488]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 7.1010003
+offset_left = -78.0
+offset_top = -129.0
+offset_right = 18.031982
+offset_bottom = 795.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=2001363436]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 6.8250003
+offset_left = 40.0
+offset_top = 18.0
+offset_right = -34.600098
+offset_bottom = 613.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer" unique_id=2005409107]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="LeaderboardName" type="Label" parent="UI/MarginContainer/VBoxContainer" unique_id=415229109]
+layout_mode = 2
+theme_override_font_sizes/font_size = 65
+text = "High Score"
+horizontal_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="UI/MarginContainer/VBoxContainer" unique_id=353218289]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Loading..."
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=96247003]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Entries" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/ScrollContainer" unique_id=675808574]
+layout_mode = 2
+
+[node name="Username" type="TextEdit" parent="UI/MarginContainer/VBoxContainer" unique_id=129197876]
+layout_mode = 2
+placeholder_text = "Username"
+
+[node name="Submit" type="Button" parent="UI/MarginContainer/VBoxContainer" unique_id=881924881]
+layout_mode = 2
+text = "Add Entry"
+
+[node name="BackButton" type="Button" parent="UI/MarginContainer/VBoxContainer" unique_id=220303422]
+layout_mode = 2
+text = "Atrás
+"
+
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/Submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
