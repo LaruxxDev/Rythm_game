@@ -13,7 +13,7 @@ var lista_comandos = []
 var intervalo_beat = 0.0
 
 @onready var musica = $AudioStreamPlayer
-@onready var ui_beat = $CanvasLayer/ColorRect
+@onready var ui_beat = $ColorRect
 @onready var timer: Timer = $Timer
 
 
