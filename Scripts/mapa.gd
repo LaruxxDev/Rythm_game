@@ -9,6 +9,7 @@ extends Node2D
 @onready var pos_enemy: Marker2D = $PosEnemy
 
 const MINION = preload("uid://d4ka1nlwrsu5c")
+const BULLET = preload("uid://bvmkyjp783q6j")
 
 var lista_enemies = []
 var ronda = 0
@@ -24,9 +25,9 @@ func _ready() -> void:
 
 func mover_player():
 	fuego.posicion = pos_player.global_position
-	agua.posicion = fuego.posicion + distancia
-	tierra.posicion = agua.posicion + distancia
+	tierra.posicion = fuego.posicion + distancia
 	planta.posicion = tierra.posicion + distancia
+	agua.posicion = planta.posicion + distancia
 
 
 func mover_enemy():
@@ -54,34 +55,77 @@ func spawn_enemies():
 	print($Enemies.global_position)
 	lista_enemies.append(enemi)
 
-
-func _on_agua():
+func check_enemie_die(tipo: String):
 	if !lista_enemies.is_empty():
-		if lista_enemies[-1].take_damage("Agua"):
+		ataque(tipo)
+		if lista_enemies[-1].take_damage(tipo):
 			lista_enemies.pop_back()
 	else:
 		start_round()
+func ataque(tipo: String):
+	match tipo:
+		"Agua":
+			hidrochorro()
+		"Fuego":
+			bolafuego(tipo)
+		"Planta":
+			bolaplanta(tipo)
+		"Tierra":
+			bolatierra(tipo)
+	pass
+func hidrochorro():
+	$Player/Agua/AnimatedSprite2D2.visible = true
+	await get_tree().create_timer(2).timeout
+	$Player/Agua/AnimatedSprite2D2.visible = false
+
+func bolafuego(tipo):
+	var bala = BULLET.instantiate()
+	fuego.add_child(bala)
+	bala.play(tipo)
+	teledigiro(bala)
+
+
+func bolaplanta(tipo):
+	var bala = BULLET.instantiate()
+	planta.add_child(bala)
+	bala.play(tipo)
+	teledigiro(bala)
+
+func bolatierra(tipo):
+	var bala = BULLET.instantiate()
+	tierra.add_child(bala)
+	bala.play(tipo)
+	teledigiro(bala)
+
+func teledigiro(bala:AnimatedSprite2D):
+	if lista_enemies.is_empty():
+		bala.queue_free()
+		return
+	bala.rotation = -25.0
+	var tween = create_tween().tween_property(bala, "global_position",lista_enemies[-1].global_position - Vector2(0.0,300),2.0)
+	await tween.finished
+	if lista_enemies.is_empty():
+		bala.queue_free()
+		return
+	bala.rotation = 90
+
+	var tween2 = create_tween().tween_property(bala, "global_position",lista_enemies[-1].global_position,1.0)
+	await tween2.finished
+	bala.queue_free()
+func _on_agua():
+	check_enemie_die("Agua")
 
 func _on_fuego():
-	if !lista_enemies.is_empty():
-		if lista_enemies[-1].take_damage("Fuego"):
-			lista_enemies.pop_back()
-	else:
-		start_round()
+	check_enemie_die("Fuego")
+
 	
 func _on_tierra():
-	if !lista_enemies.is_empty():
-		if lista_enemies[-1].take_damage("Tierra"):
-			lista_enemies.pop_back()
-	else:
-		start_round()
+	check_enemie_die("Tierra")
+
 
 func _on_planta():
-	if !lista_enemies.is_empty():
-		if lista_enemies[-1].take_damage("Planta"):
-			lista_enemies.pop_back()
-	else:
-		start_round()
+	check_enemie_die("Planta")
+
 	
 	
 	
