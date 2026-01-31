@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://broa11dv87v0a" path="res://Scripts/UI/nuebe1.gd" id="6_kkfvo"]
 [ext_resource type="Texture2D" uid="uid://cuppj60yivq7p" path="res://Assets/Scenario_x4.png" id="6_lkwsl"]
 [ext_resource type="Texture2D" uid="uid://baeke5ci6gutj" path="res://Assets/Scenario_tileset_x4.png" id="6_yq38d"]
+[ext_resource type="Texture2D" uid="uid://cs4mgfaewo6v1" path="res://Assets/Scenario_tilesetnube_x4.png" id="7_1lxf8"]
 [ext_resource type="Script" uid="uid://cmoipy5nprbak" path="res://Scripts/suelo.gd" id="7_ykhg3"]
 [ext_resource type="PackedScene" uid="uid://bibvterjfeeyr" path="res://Scenes/UI/hud.tscn" id="8_v1efw"]
 [ext_resource type="Script" uid="uid://cwn24hu57oybm" path="res://Scripts/UI/nuebe2.gd" id="8_yq38d"]
@@ -83,12 +84,37 @@ use_texture_padding = false
 8:1/0 = 0
 9:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_604li"]
+texture = ExtResource("7_1lxf8")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_604li"]
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_kconx")
 sources/1 = SubResource("TileSetAtlasSource_v43pt")
 sources/2 = SubResource("TileSetAtlasSource_ykhg3")
 sources/3 = SubResource("TileSetAtlasSource_nl0av")
+sources/4 = SubResource("TileSetAtlasSource_604li")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1lxf8"]
 texture = ExtResource("4_ykhg3")
@@ -194,8 +220,6 @@ position = Vector2(-118, 529)
 position = Vector2(82, 412)
 
 [node name="Ritmo" parent="." unique_id=1441584467 instance=ExtResource("3_vm3su")]
-bpm = 120
-margen = 0.3
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1115279667]
 
@@ -220,7 +244,7 @@ script = ExtResource("8_yq38d")
 
 [node name="nube1" type="TileMapLayer" parent="ParallaxBackground/ParallaxLayer4" unique_id=1823273606]
 position = Vector2(-67, -249)
-tile_map_data = PackedByteArray("AAAPABMAAAAEAAEAAABCABUAAAAEAAEAAAA/AAcAAAAEAAEAAAArAAUAAAAEAAEAAAAkAB4AAAAEAAEAAAA8AAkAAAAFAAEAAABGABYAAAAFAAEAAAAFABcAAAAFAAEAAAAvAAMAAAAEAAAAAAAlABEAAAAEAAAAAAA3ABcAAAAEAAAAAAAIAAUAAwAHAAAAAAAJAAUAAwAIAAAAAAAOAAkAAwAHAAAAAAAPAAkAAwAIAAEAAAAQAAgAAwAHAAEAAAARAAgAAwAIAAEAAAABAAQAAwAHAAEAAAACAAQAAwAIAAEAAAAFAAkAAQAEAAEAAAAGAAkAAQAEAAEAAAAWAAgAAwAHAAEAAAAXAAgAAwAIAAEAAAAKAAUAAQAEAAEAAAASAAgAAQAEAAEAAAAQAAkAAQAEAAEAAAAPAAgAAQAEAAEAAAANAAkAAQAEAAEAAAAOAAgAAQAEAAEAAAANAAgAAQAEAAEAAAAVAAQAAQAEAAEAAAAVAAgAAQAEAAEAAAAUAAgAAQAEAAEAAAADAAQAAQAEAAEAAAAHAAkAAQAEAAEAAAA=")
+tile_map_data = PackedByteArray("AABCABUAAAAEAAEAAAAkAB4AAAAEAAEAAABGABYAAAAFAAEAAAADAAUABAAHAAAAAAAEAAUABAAIAAAAAAAIAAkABAAHAAAAAAAJAAkABAAIAAAAAAAOAAQABAAHAAAAAAAPAAQABAAIAAAAAAAQAAQABAAHAAAAAAARAAQABAAIAAAAAAASAAkABAAHAAAAAAATAAkABAAIAAAAAAARAAoABAAHAAEAAAASAAoABAAIAAEAAAAOAAYABAAHAAEAAAAPAAYABAAIAAEAAAAMAAgABAAHAAEAAAANAAgABAAIAAEAAAAGAAUABAAHAAEAAAAHAAUABAAIAAEAAAAGAAcABAAHAAEAAAAHAAcABAAIAAEAAAAJAAYABAAHAAEAAAAKAAYABAAIAAEAAAADAAkABAAHAAEAAAAEAAkABAAIAAEAAAABAAQABAAHAAEAAAACAAQABAAIAAEAAAA=")
 tile_set = SubResource("TileSet_604li")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1942928318]
