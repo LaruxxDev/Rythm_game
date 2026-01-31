@@ -3,7 +3,7 @@ extends Node2D
 const BIT = preload("uid://oplnfghwhb2l")
 
 @export var bpm : int = 120
-@export var margen : float = 0.20 # Margen de error 
+@export var margen : float = 0.30 # Margen de error 
 var ultimo_beat = -1
 
 var historial = -1
@@ -23,13 +23,19 @@ func _ready() -> void:
 	timer.wait_time = intervalo_beat
 	Signalbus.nuevo_beat.connect(_on_nuevo_beat)
 	Signalbus.win.connect(_on_win_round)
+	Signalbus.tiki_mask.connect(_on_win_round)
+	Signalbus.japo_mask.connect(_on_win_round)
+	Signalbus.tragicomedia_mask.connect(_on_win_round)
+	Signalbus.plaga_mask.connect(_on_win_round)
+	Signalbus.mask_off.connect(_on_win_round)
+	_on_mask_off()
+	
 	if not musica.playing:
 		musica.play()
 
 func _physics_process(_delta: float) -> void:
 	if not musica.playing:
 		musica.play()
-		print(3333)
 
 	var pos_cancion = musica.get_playback_position() + AudioServer.get_time_since_last_mix() #Posicion de la cancion
 	pos_cancion -= AudioServer.get_output_latency()
@@ -102,6 +108,43 @@ func _on_timer_timeout() -> void:
 
 func _on_win_round():
 	lista_comandos.clear()
+	
+
+func _on_tiki_mask():
+	play_masks("Tiki")
+
+
+
+func _on_japo_mask():
+	play_masks("Japo")
+
+
+func _on_tragicomedia_mask():
+	play_masks("Tragi")
+
+
+func _on_plaga_mask():
+	play_masks("Plaga")
+
+func _on_mask_off():
+	mute_masks("Tiki")
+	mute_masks("Japo")
+	mute_masks("Tragi")
+	mute_masks("Plaga")
+
+
+func play_masks(tipo:String):
+	var index = AudioServer.get_bus_index(tipo)
+	var tween: Tween = create_tween()
+	tween.tween_method(func(val):AudioServer.set_bus_volume_db(index,val),-80.0, -0,1 )
+	mute_masks("Base")
+
+
+func mute_masks(tipo:String):
+	var index = AudioServer.get_bus_index(tipo)
+	var tween: Tween = create_tween()
+	tween.tween_method(func(val):AudioServer.set_bus_volume_db(index,val),0, -80.0,1 )
+
 
 
 func enviar_bit():

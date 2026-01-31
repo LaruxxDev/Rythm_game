@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://c8uppgfp7h7k5" path="res://Scripts/ritmo.gd" id="1_316ka"]
 [ext_resource type="AudioStream" uid="uid://gbbyhrvmf4r6" path="res://Assets/Songs/musica_base.wav" id="2_316ka"]
 [ext_resource type="AudioStream" uid="uid://cn4owhsq7to2u" path="res://Assets/Songs/Claqueta.wav" id="3_yomdr"]
+[ext_resource type="AudioStream" uid="uid://dnn7se8jy1vp8" path="res://Assets/Songs/musica_tiki.wav" id="4_ifm08"]
+[ext_resource type="AudioStream" uid="uid://c3c306dosiyfb" path="res://Assets/Songs/musica_japo.wav" id="5_fxr6j"]
+[ext_resource type="AudioStream" uid="uid://du2xr65ksgmf" path="res://Assets/Songs/musica_griega.wav" id="6_s8ayg"]
+[ext_resource type="AudioStream" uid="uid://cqtsg7ct8pt6e" path="res://Assets/Songs/musica_peste.wav" id="7_23brj"]
 
 [node name="Ritmo" type="Node2D" unique_id=1441584467]
 script = ExtResource("1_316ka")
@@ -25,10 +29,10 @@ autostart = true
 ignore_time_scale = true
 
 [node name="Spawner" type="Marker2D" parent="." unique_id=1718812998]
-position = Vector2(770, 40)
+position = Vector2(938, 40)
 
 [node name="Spawner2" type="Marker2D" parent="." unique_id=797563173]
-position = Vector2(370, 40)
+position = Vector2(201, 40)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=595490150]
 position = Vector2(570, 40)
@@ -41,6 +45,25 @@ bus = &"Base"
 [node name="Claqueta" type="AudioStreamPlayer" parent="." unique_id=1424893096]
 stream = ExtResource("3_yomdr")
 autoplay = true
-bus = &"Base"
+
+[node name="Tiki" type="AudioStreamPlayer" parent="." unique_id=928214606]
+stream = ExtResource("4_ifm08")
+autoplay = true
+bus = &"Tiki"
+
+[node name="Japo" type="AudioStreamPlayer" parent="." unique_id=534726373]
+stream = ExtResource("5_fxr6j")
+autoplay = true
+bus = &"Japo"
+
+[node name="Tragicomedia" type="AudioStreamPlayer" parent="." unique_id=63049255]
+stream = ExtResource("6_s8ayg")
+autoplay = true
+bus = &"Tragi"
+
+[node name="Plaga" type="AudioStreamPlayer" parent="." unique_id=566787052]
+stream = ExtResource("7_23brj")
+autoplay = true
+bus = &"Plaga"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
