@@ -11,6 +11,7 @@ extends Node2D
 const MINION = preload("uid://d4ka1nlwrsu5c")
 
 var lista_enemies = []
+var ronda = 0
 
 func _ready() -> void:
 	mover_player()
@@ -32,6 +33,7 @@ func mover_enemy():
 
 
 func start_round():
+	ronda += 1
 	randomize()
 	var num = randi_range(3,7)
 	for i in num:
