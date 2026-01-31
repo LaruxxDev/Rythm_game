@@ -7,15 +7,15 @@ extends Control
 var hearts_list: Array[TextureRect]
 
 func _ready() -> void:
-	Signalbus.lives_changed.connect(update_lives)
+	Signalbus.fallo.connect(update_lives)
+
 	for child in vidas_container.get_children():
 		hearts_list.append(child)
-	
-	update_lives()
 		
 func update_lives():
-	for i in range(hearts_list.size()):
-		hearts_list[i].visible = false
+	await get_tree().create_timer(2).timeout
+	hearts_list[-1].queue_free()
+	hearts_list.pop_back()
 		
 func next_ronda(ronda:int):
 	rondas.text = "Ronda: " + str(ronda) 
