@@ -155,6 +155,7 @@ animation = &"Tierra_attack"
 shape = SubResource("CircleShape2D_s0atx")
 
 [node name="Bocadillo" parent="." unique_id=1772096548 instance=ExtResource("3_f5x54")]
+visible = false
 offset_left = 22.0
 offset_top = -143.0
 offset_right = 390.055
