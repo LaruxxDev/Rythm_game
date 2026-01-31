@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://dstmhj67y3et1"]
 
 [ext_resource type="Script" uid="uid://c8uppgfp7h7k5" path="res://Scripts/ritmo.gd" id="1_316ka"]
-[ext_resource type="AudioStream" uid="uid://od7ayrlujx33" path="res://Assets/leonell-cassio-the-paranormal-is-real-ft-carrie-163742.mp3" id="2_yomdr"]
+[ext_resource type="AudioStream" uid="uid://gbbyhrvmf4r6" path="res://Assets/Songs/musica_base.wav" id="2_316ka"]
 
 [node name="Ritmo" type="Node2D" unique_id=1441584467]
 script = ExtResource("1_316ka")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1857800486]
-stream = ExtResource("2_yomdr")
+stream = ExtResource("2_316ka")
 autoplay = true
+bus = &"Base"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=957661181]
 custom_minimum_size = Vector2(30, 30)
