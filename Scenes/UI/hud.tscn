@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bibvterjfeeyr"]
 
+[ext_resource type="Script" uid="uid://dgnl8mskktgm2" path="res://Scripts/UI/hud.gd" id="1_fdl0h"]
 [ext_resource type="Texture2D" uid="uid://bg33crhhun1s1" path="res://Assets/Heart_hud_x4.png" id="1_ny26j"]
 [ext_resource type="Texture2D" uid="uid://ft2vaa6dyg3l" path="res://Assets/Elements_hud_x2.png" id="2_ny26j"]
 
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fdl0h")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1160467323]
 layout_mode = 1
@@ -32,37 +34,27 @@ alignment = 1
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/vidasContainer" unique_id=1092424786]
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/vidasContainer/VBoxContainer" unique_id=757304537]
-layout_mode = 2
-
-[node name="vida1" type="TextureRect" parent="HBoxContainer/vidasContainer/VBoxContainer/HBoxContainer2" unique_id=1095438601]
+[node name="vida1" type="TextureRect" parent="HBoxContainer/vidasContainer" unique_id=1095438601]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("1_ny26j")
 
-[node name="vida2" type="TextureRect" parent="HBoxContainer/vidasContainer/VBoxContainer/HBoxContainer2" unique_id=1875209632]
+[node name="vida2" type="TextureRect" parent="HBoxContainer/vidasContainer" unique_id=1875209632]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("1_ny26j")
 
-[node name="vida3" type="TextureRect" parent="HBoxContainer/vidasContainer/VBoxContainer/HBoxContainer2" unique_id=38724966]
+[node name="vida3" type="TextureRect" parent="HBoxContainer/vidasContainer" unique_id=38724966]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("1_ny26j")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/vidasContainer/VBoxContainer" unique_id=2059755914]
-layout_mode = 2
-alignment = 1
-
-[node name="vida4" type="TextureRect" parent="HBoxContainer/vidasContainer/VBoxContainer/HBoxContainer" unique_id=1224977055]
+[node name="vida4" type="TextureRect" parent="HBoxContainer/vidasContainer" unique_id=1224977055]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("1_ny26j")
 
-[node name="vida5" type="TextureRect" parent="HBoxContainer/vidasContainer/VBoxContainer/HBoxContainer" unique_id=1701870677]
+[node name="vida5" type="TextureRect" parent="HBoxContainer/vidasContainer" unique_id=1701870677]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("1_ny26j")
