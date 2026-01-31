@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://d0u5oogqwi0wl"]
 
+[ext_resource type="Script" uid="uid://bgom3v82ioyim" path="res://Scripts/UI/sound_menu.gd" id="1_iehck"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fttt8"]
 content_margin_left = 100.0
 content_margin_top = 5.0
@@ -15,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_iehck")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=532671544]
 layout_mode = 1
@@ -76,3 +79,21 @@ value = 100.0
 layout_mode = 2
 theme_override_styles/slider = SubResource("StyleBoxFlat_fttt8")
 value = 100.0
+
+[node name="BackButton" type="Button" parent="." unique_id=1663138877]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -98.0
+offset_right = 4.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Volver"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

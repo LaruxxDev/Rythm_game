@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b1tfalpbqlrje"]
 
+[ext_resource type="Script" uid="uid://dpnn6eswj34tn" path="res://Scripts/UI/controles_menu.gd" id="1_mfd7x"]
 [ext_resource type="Texture2D" uid="uid://djkkcxkd57f61" path="res://icon.svg" id="1_uwe0x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwe0x"]
@@ -19,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mfd7x")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=532237562]
 layout_mode = 1
@@ -62,3 +64,21 @@ metadata/_tab_index = 1
 [node name="MandoImage" type="TextureRect" parent="TabContainer/Mando" unique_id=760709478]
 layout_mode = 2
 texture = ExtResource("1_uwe0x")
+
+[node name="BackButton" type="Button" parent="." unique_id=960657445]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -121.03998
+offset_right = 42.0
+offset_bottom = -78.03998
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Volver"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
