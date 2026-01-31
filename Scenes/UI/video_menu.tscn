@@ -43,25 +43,11 @@ layout_mode = 2
 layout_mode = 2
 text = "Pantalla Completa"
 
-[node name="Resolucion" type="Label" parent="HBoxContainer/LabelContainer" unique_id=2032410436]
-layout_mode = 2
-text = "Resolución"
-
 [node name="Container2" type="VBoxContainer" parent="HBoxContainer" unique_id=726424793]
 layout_mode = 2
 
 [node name="OptionButton" type="CheckButton" parent="HBoxContainer/Container2" unique_id=238597127]
 layout_mode = 2
-
-[node name="OptionButton2" type="OptionButton" parent="HBoxContainer/Container2" unique_id=1865111893]
-layout_mode = 2
-item_count = 3
-popup/item_0/text = "1280 x 720"
-popup/item_0/id = 0
-popup/item_1/text = "1920 x 1080"
-popup/item_1/id = 1
-popup/item_2/text = "2560 x 1440"
-popup/item_2/id = 2
 
 [node name="BackButton" type="Button" parent="." unique_id=1646577669]
 layout_mode = 1

@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Signalbus="*uid://cnbdqvb1wm645"
+LifeManager="*uid://mxl5em3acn3p"
 
 [display]
 
