@@ -78,4 +78,5 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Volver"
 
+[connection signal="toggled" from="HBoxContainer/Container2/OptionButton" to="." method="_on_option_button_toggled"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

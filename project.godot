@@ -20,6 +20,8 @@ Signalbus="*uid://cnbdqvb1wm645"
 
 [display]
 
+window/size/mode=3
+window/size/resizable=false
 window/stretch/scale_mode="integer"
 
 [input]
