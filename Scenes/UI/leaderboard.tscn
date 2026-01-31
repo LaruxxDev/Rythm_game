@@ -36,16 +36,17 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer" unique_id=2005409107]
 layout_mode = 2
-size_flags_vertical = 4
 theme_override_constants/separation = 24
 
 [node name="LeaderboardName" type="Label" parent="UI/MarginContainer/VBoxContainer" unique_id=415229109]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 65
 text = "High Score"
 horizontal_alignment = 1
 
 [node name="InfoLabel" type="Label" parent="UI/MarginContainer/VBoxContainer" unique_id=353218289]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Loading..."
@@ -57,13 +58,18 @@ size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
 [node name="Entries" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/ScrollContainer" unique_id=675808574]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Username" type="TextEdit" parent="UI/MarginContainer/VBoxContainer" unique_id=129197876]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
+size_flags_horizontal = 4
 placeholder_text = "Username"
 
 [node name="Submit" type="Button" parent="UI/MarginContainer/VBoxContainer" unique_id=881924881]
+visible = false
 layout_mode = 2
 text = "Add Entry"
 

@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://bm8vnmp3g7kka" path="res://Scripts/UI/entry_leaderboard.gd" id="1_bt5mp"]
 
 [node name="EntryLeaderboard" type="Label" unique_id=1815516811]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 149.0
+offset_bottom = 23.0
+text = "{score} {username}"
+horizontal_alignment = 1
 script = ExtResource("1_bt5mp")
