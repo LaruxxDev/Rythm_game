@@ -8,7 +8,7 @@ func set_paused(paused: bool) -> void:
 	visible = paused
 	
 func _unhandled_input(event):
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pausar"):
 		SceneManager.pause_game(true)
 
 

@@ -11,6 +11,7 @@ atlas = ExtResource("1_8rf44")
 region = Rect2(0, 0, 384, 256)
 
 [node name="PauseMenu" type="Control" unique_id=989186976]
+process_mode = 3
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
