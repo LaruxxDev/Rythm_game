@@ -2,7 +2,7 @@ extends Node2D
 
 const BIT = preload("uid://oplnfghwhb2l")
 
-@export var bpm : int = 120
+var bpm : int = 120
 @export var margen : float = 0.30 # Margen de error 
 var ultimo_beat = -1
 
@@ -12,13 +12,21 @@ var lista_comandos = []
 var lista_enemigos= []
 var intervalo_beat = 0.0
 
-@onready var musica = $Base
+@onready var musica: AudioStreamPlayer = $Base
+@onready var claqueta: AudioStreamPlayer = $Claqueta
+@onready var tiki: AudioStreamPlayer = $Tiki
+@onready var japo: AudioStreamPlayer = $Japo
+@onready var tragicomedia: AudioStreamPlayer = $Tragicomedia
+@onready var plaga: AudioStreamPlayer = $Plaga
+
 @onready var ui_beat = $ColorRect
 @onready var timer: Timer = $Timer
 
 
 func _ready() -> void:
 	ui_beat.visible = false
+	bpm = 120 * claqueta.pitch_scale
+
 	intervalo_beat = 60.0 / bpm 
 	timer.wait_time = intervalo_beat
 	Signalbus.nuevo_beat.connect(_on_nuevo_beat)
@@ -29,14 +37,15 @@ func _ready() -> void:
 	Signalbus.plaga_mask.connect(_on_win_round)
 	Signalbus.mask_off.connect(_on_win_round)
 	_on_mask_off()
-	
+	igualar_bpm()
 	if not musica.playing:
 		musica.play()
 
 func _physics_process(_delta: float) -> void:
 	if not musica.playing:
 		musica.play()
-
+	bpm = 120 * claqueta.pitch_scale
+	intervalo_beat = 60.0 / bpm 
 	var pos_cancion = musica.get_playback_position() + AudioServer.get_time_since_last_mix() #Posicion de la cancion
 	pos_cancion -= AudioServer.get_output_latency()
 	#Beat actual (ejm: 1 )
@@ -66,6 +75,16 @@ func _physics_process(_delta: float) -> void:
 		if intentar_beat(time_margen, index_beat_cercano):
 			Signalbus.planta.emit()
 
+func subir_bpm(num):
+	musica.pitch_scale += num
+	igualar_bpm()
+
+func igualar_bpm():
+	claqueta.pitch_scale = musica.pitch_scale
+	tiki.pitch_scale = musica.pitch_scale
+	japo.pitch_scale = musica.pitch_scale
+	tragicomedia.pitch_scale = musica.pitch_scale
+	plaga.pitch_scale = musica.pitch_scale
 
 func intentar_beat(time_margen, beat):
 	if beat == hit_beat or beat == historial+1:
@@ -130,13 +149,15 @@ func _on_mask_off():
 func play_masks(tipo:String):
 	var index = AudioServer.get_bus_index(tipo)
 	var tween: Tween = create_tween()
-	tween.tween_method(func(val):AudioServer.set_bus_volume_db(index,val),-80.0, -0,1 )
+	tween.tween_method(func(val):AudioServer.set_bus_volume_db(index,val),-80.0, 0,1 )
 	mute_masks("Base")
 
 func mute_masks(tipo:String):
 	var index = AudioServer.get_bus_index(tipo)
 	var tween: Tween = create_tween()
-	tween.tween_method(func(val):AudioServer.set_bus_volume_db(index,val),0, -80.0,1 )
+	tween.tween_method(func(val):AudioServer.set_bus_volume_db(index,val),0, -80,1 )
+	await tween.finished
+	print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(tipo))  )
 
 func enviar_bit():
 	var bit = BIT.instantiate()
@@ -144,8 +165,9 @@ func enviar_bit():
 	$Spawner2.add_child(bit2)
 	$Spawner.add_child(bit)
 	var tween: Tween = get_tree().create_tween().set_parallel(true)
-	tween.tween_property(bit, "global_position", $Sprite2D.global_position, intervalo_beat)
-	tween.tween_property(bit2, "global_position", $Sprite2D.global_position, intervalo_beat)
+	print(intervalo_beat)
+	tween.tween_property(bit, "global_position", $Sprite2D.global_position, intervalo_beat + margen)
+	tween.tween_property(bit2, "global_position", $Sprite2D.global_position, intervalo_beat+ margen)
 	await tween.finished
 	bit.queue_free()
 	bit2.queue_free()

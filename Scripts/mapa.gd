@@ -62,6 +62,7 @@ func check_enemie_die(tipo: String):
 			lista_enemies.pop_back()
 	else:
 		start_round()
+
 func ataque(tipo: String):
 	match tipo:
 		"Agua":
@@ -112,6 +113,7 @@ func teledigiro(bala:AnimatedSprite2D):
 	var tween2 = create_tween().tween_property(bala, "global_position",lista_enemies[-1].global_position,1.0)
 	await tween2.finished
 	bala.queue_free()
+
 func _on_agua():
 	check_enemie_die("Agua")
 
