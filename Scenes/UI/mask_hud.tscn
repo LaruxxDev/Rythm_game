@@ -207,11 +207,13 @@ autoplay = "default"
 frame_progress = 0.9828726
 
 [node name="tragi" type="Node2D" parent="." unique_id=1822909592]
+visible = false
 
 [node name="tragimask" type="AnimatedSprite2D" parent="tragi" unique_id=546024546]
 sprite_frames = SubResource("SpriteFrames_26mn2")
 
 [node name="tragianim" type="AnimatedSprite2D" parent="tragi" unique_id=1985985023]
+visible = false
 texture_filter = 1
 position = Vector2(-303.99997, 192)
 scale = Vector2(5, 5)

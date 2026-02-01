@@ -13,9 +13,13 @@ func _ready() -> void:
 		hearts_list.append(child)
 		
 func update_lives():
-	await get_tree().create_timer(2).timeout
-	hearts_list[-1].queue_free()
-	hearts_list.pop_back()
+	if hearts_list.size() != 0 :
+		
+		await get_tree().create_timer(2).timeout
+		hearts_list[-1].queue_free()
+		hearts_list.pop_back()
+	else:
+		pass
 		
 func next_ronda(ronda:int):
 	rondas.text = "Ronda: " + str(ronda) 

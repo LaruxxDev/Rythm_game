@@ -9,7 +9,7 @@ extends Node2D
 @onready var pos_enemy: Marker2D = $PosEnemy
 
 const MINION = preload("uid://d4ka1nlwrsu5c")
-const BULLET = preload("uid://bvmkyjp783q6j")
+const BULLET = preload("res://Scenes/bullet.tscn")
 
 var lista_enemies = []
 var ronda = 0
@@ -41,6 +41,9 @@ func mover_enemy():
 func start_round():
 	ronda += 1
 	randomize()
+	var maskRandomNum = randi_range(0,3)
+	var maskListStr = ["tiki","tragi","plaga","japo"]
+	attack_mask(maskListStr[maskRandomNum])
 	var num = randi_range(3,7)
 	for i in num:
 		spawn_enemies()
@@ -60,8 +63,8 @@ func check_enemie_die(tipo: String):
 		ataque(tipo)
 		if lista_enemies[-1].take_damage(tipo):
 			lista_enemies.pop_back()
-	else:
-		start_round()
+			if lista_enemies.is_empty():
+				start_round()
 
 func ataque(tipo: String):
 	match tipo:
@@ -128,14 +131,11 @@ func _on_tierra():
 func _on_planta():
 	check_enemie_die("Planta")
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+func attack_mask(mask: String):
+	var maskNode = $MaskHUD.get_node(mask)
+	maskNode.visible = true
+	var maskAnim = maskNode.get_node(mask+"anim")
+	maskAnim.visible = true
+	await get_tree().create_timer(2).timeout
+	maskAnim.visible = false
+	maskNode.visible = false

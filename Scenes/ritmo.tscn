@@ -7,11 +7,15 @@
 [ext_resource type="AudioStream" uid="uid://c3c306dosiyfb" path="res://Assets/Songs/musica_japo.wav" id="5_fxr6j"]
 [ext_resource type="AudioStream" uid="uid://du2xr65ksgmf" path="res://Assets/Songs/musica_griega.wav" id="6_s8ayg"]
 [ext_resource type="AudioStream" uid="uid://cqtsg7ct8pt6e" path="res://Assets/Songs/musica_peste.wav" id="7_23brj"]
-[ext_resource type="Texture2D" uid="uid://bkcsggjn2qjw6" path="res://Assets/branch_hud_x4.png" id="8_23brj"]
+[ext_resource type="Texture2D" uid="uid://b80wcb5lq8yxw" path="res://Assets/branch_hud2_x4.png" id="8_23brj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k8pxl"]
 atlas = ExtResource("8_23brj")
-region = Rect2(0, 0, 268, 127)
+region = Rect2(0, 0, 268, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8rjx"]
+atlas = ExtResource("8_23brj")
+region = Rect2(0, 0, 268, 128)
 
 [node name="Ritmo" type="Node2D" unique_id=1441584467]
 script = ExtResource("1_316ka")
@@ -34,10 +38,10 @@ autostart = true
 ignore_time_scale = true
 
 [node name="Spawner" type="Marker2D" parent="." unique_id=1718812998]
-position = Vector2(938, 40)
+position = Vector2(781, 40)
 
 [node name="Spawner2" type="Marker2D" parent="." unique_id=797563173]
-position = Vector2(201, 40)
+position = Vector2(361, 40)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=595490150]
 position = Vector2(570, 40)
@@ -86,7 +90,7 @@ texture = SubResource("AtlasTexture_k8pxl")
 
 [node name="TextureRect3" type="TextureRect" parent="HBoxContainer2" unique_id=806813784]
 layout_mode = 2
-texture = SubResource("AtlasTexture_k8pxl")
+texture = SubResource("AtlasTexture_r8rjx")
 flip_h = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
