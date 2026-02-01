@@ -8,8 +8,8 @@ extends Control
 @export var textura : String
 @export var texto ={
 	"esquives":["Saltar","Esquivar","Agacharse","Esconderse"],
-	"flechas":["Fuego","Agua","Tierra","Planta"],
-	"mando_atq":["Fuego","Agua","Tierra","Planta"],
+	"flechas":["Fuego","Planta","Tierra","Agua"],
+	"mando_atq":["Fuego","Planta","Tierra","Agua"],
 	"mando_esq":["Saltar","Esquivar","Agacharse","Esconderse"]
 
 
