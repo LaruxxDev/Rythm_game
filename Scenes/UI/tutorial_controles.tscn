@@ -13,6 +13,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nt2f7")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=412849919]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Label" type="Label" parent="." unique_id=808087532]
 layout_mode = 1
 anchors_preset = 5
@@ -47,28 +56,28 @@ grow_vertical = 2
 theme_override_constants/separation = 500
 alignment = 1
 
-[node name="Control" parent="mando" unique_id=1343091027 instance=ExtResource("1_pbuok")]
-layout_mode = 2
-textura = "flechas"
-
 [node name="Control2" parent="mando" unique_id=652065432 instance=ExtResource("1_pbuok")]
 layout_mode = 2
 textura = "esquives"
 
+[node name="Control" parent="mando" unique_id=1343091027 instance=ExtResource("1_pbuok")]
+layout_mode = 2
+textura = "flechas"
+
 [node name="teclado" type="HBoxContainer" parent="." unique_id=1687476751]
 layout_mode = 0
-offset_left = 809.0
+offset_left = 357.0
 offset_top = 318.0
-offset_right = 1309.0
+offset_right = 857.0
 offset_bottom = 358.0
-theme_override_constants/separation = -500
-
-[node name="Control3" parent="teclado" unique_id=1067611675 instance=ExtResource("1_pbuok")]
-layout_mode = 2
-textura = "mando_esq"
+theme_override_constants/separation = 500
 
 [node name="Control4" parent="teclado" unique_id=600461100 instance=ExtResource("1_pbuok")]
 layout_mode = 2
 textura = "mando_atq"
+
+[node name="Control3" parent="teclado" unique_id=1067611675 instance=ExtResource("1_pbuok")]
+layout_mode = 2
+textura = "mando_esq"
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
