@@ -1,18 +1,39 @@
-[gd_scene format=3 uid="uid://boocacfjd0maf"]
+[gd_scene format=3 uid="uid://dpslr1mjsmikg"]
 
-[ext_resource type="Texture2D" uid="uid://djkkcxkd57f61" path="res://icon.svg" id="1_5qwf0"]
-[ext_resource type="Script" uid="uid://dh23j703iwfqk" path="res://Scripts/UI/mask_hud.gd" id="1_sxgnw"]
+[ext_resource type="Script" path="res://Scripts/UI/mask_hud.gd" id="1_sxgnw"]
+[ext_resource type="Texture2D" uid="uid://6gr4u8dic16t" path="res://Assets/Tiki_mask_true_x4.png" id="2_sxgnw"]
 [ext_resource type="Texture2D" uid="uid://dxoojuprpvmd2" path="res://Assets/Spells_boss_anim_x2.png" id="3_pkiv5"]
+[ext_resource type="Texture2D" uid="uid://bxoilgbr0vwcl" path="res://Assets/PlagueDoc_mask_x4.png" id="4_pkiv5"]
+[ext_resource type="Texture2D" uid="uid://dee2o2tnnugxj" path="res://Assets/Oni_mask_no_anim_x4.png" id="5_r8ugk"]
+[ext_resource type="Texture2D" uid="uid://p2tmlsyen0rt" path="res://Assets/Oni_mask_no_anim_x42.png" id="6_vfocd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkiv5"]
+atlas = ExtResource("2_sxgnw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al7cl"]
+atlas = ExtResource("2_sxgnw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd6fw"]
+atlas = ExtResource("2_sxgnw")
+region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_26mn2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_5qwf0")
+"texture": SubResource("AtlasTexture_pkiv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al7cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jd6fw")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqxj6"]
@@ -49,6 +70,35 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edjgh"]
+atlas = ExtResource("4_pkiv5")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2yr6"]
+atlas = ExtResource("4_pkiv5")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_263r8"]
+atlas = ExtResource("4_pkiv5")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tab1i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edjgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2yr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_263r8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r6cwb"]
@@ -116,6 +166,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tab1i"]
+atlas = ExtResource("5_r8ugk")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7uef"]
+atlas = ExtResource("6_vfocd")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m70ps"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tab1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7uef")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_svicq"]
 atlas = ExtResource("3_pkiv5")
 region = Rect2(0, 96, 32, 32)
@@ -152,6 +224,35 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wcor"]
+atlas = ExtResource("2_sxgnw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo0ke"]
+atlas = ExtResource("2_sxgnw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6byts"]
+atlas = ExtResource("2_sxgnw")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hph6y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wcor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo0ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6byts")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="MaskHUD" type="Control" unique_id=1370445093]
 layout_mode = 3
 anchors_preset = 5
@@ -168,6 +269,7 @@ visible = false
 
 [node name="tikimask" type="AnimatedSprite2D" parent="tiki" unique_id=1795630787]
 sprite_frames = SubResource("SpriteFrames_26mn2")
+autoplay = "default"
 
 [node name="tikianim" type="AnimatedSprite2D" parent="tiki" unique_id=784169921]
 visible = false
@@ -179,8 +281,9 @@ sprite_frames = SubResource("SpriteFrames_al7cl")
 [node name="plaga" type="Node2D" parent="." unique_id=1890557651]
 visible = false
 
-[node name="plagamask" type="AnimatedSprite2D" parent="plaga" unique_id=914938583]
-sprite_frames = SubResource("SpriteFrames_26mn2")
+[node name="plagamask" type="AnimatedSprite2D" parent="plaga" unique_id=404350947]
+sprite_frames = SubResource("SpriteFrames_tab1i")
+autoplay = "default"
 
 [node name="plagaanim" type="AnimatedSprite2D" parent="plaga" unique_id=406670927]
 visible = false
@@ -194,9 +297,6 @@ frame_progress = 0.8239488
 [node name="japo" type="Node2D" parent="." unique_id=925190906]
 visible = false
 
-[node name="japomask" type="AnimatedSprite2D" parent="japo" unique_id=1180133781]
-sprite_frames = SubResource("SpriteFrames_26mn2")
-
 [node name="japoanim" type="AnimatedSprite2D" parent="japo" unique_id=1932455736]
 visible = false
 texture_filter = 1
@@ -206,11 +306,12 @@ sprite_frames = SubResource("SpriteFrames_edjgh")
 autoplay = "default"
 frame_progress = 0.9828726
 
+[node name="japomask" type="AnimatedSprite2D" parent="japo" unique_id=1936787796]
+sprite_frames = SubResource("SpriteFrames_m70ps")
+autoplay = "default"
+
 [node name="tragi" type="Node2D" parent="." unique_id=1822909592]
 visible = false
-
-[node name="tragimask" type="AnimatedSprite2D" parent="tragi" unique_id=546024546]
-sprite_frames = SubResource("SpriteFrames_26mn2")
 
 [node name="tragianim" type="AnimatedSprite2D" parent="tragi" unique_id=1985985023]
 visible = false
@@ -219,3 +320,7 @@ position = Vector2(-303.99997, 192)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_y2yr6")
 frame_progress = 0.3841005
+
+[node name="tragimask" type="AnimatedSprite2D" parent="tragi" unique_id=2099739960]
+sprite_frames = SubResource("SpriteFrames_hph6y")
+autoplay = "default"
