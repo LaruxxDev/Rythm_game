@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c2w8ndraqk8ti" path="res://Scripts/UI/leaderboard.gd" id="1_7f0wt"]
 [ext_resource type="Texture2D" uid="uid://c58h0kfmf8q8y" path="res://Assets/Menus_hud_x4.png" id="2_ujo2p"]
 [ext_resource type="FontFile" uid="uid://cqg6jpmf62b3j" path="res://Assets/Epson Pixeled.ttf" id="3_62257"]
+[ext_resource type="AudioStream" uid="uid://gbbyhrvmf4r6" path="res://Assets/Songs/musica_base.wav" id="4_trr20"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_62257"]
 atlas = ExtResource("2_ujo2p")
@@ -83,6 +84,11 @@ text = "Add Entry"
 layout_mode = 2
 text = "Atrás
 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=639705872]
+stream = ExtResource("4_trr20")
+autoplay = true
+mix_target = 1
 
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/Submit" to="." method="_on_submit_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

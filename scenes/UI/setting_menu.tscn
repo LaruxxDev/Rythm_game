@@ -67,11 +67,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Sound"
 
-[node name="VideoButton" type="Button" parent="VBoxContainer" unique_id=1924561653]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Video"
-
 [node name="ResumeButton" type="Button" parent="VBoxContainer" unique_id=2093833589]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
@@ -93,6 +88,5 @@ layout_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SoundButton" to="." method="_on_sound_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/VideoButton" to="." method="_on_video_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

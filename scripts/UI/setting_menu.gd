@@ -12,12 +12,8 @@ func _on_controls_button_pressed() -> void:
 func _on_sound_button_pressed() -> void:
 	sound_menu.visible = true
 
-
-func _on_video_button_pressed() -> void:
-	video_menu.visible = true
-
 func _on_resume_button_pressed() -> void:
-	visible = false
+	visible = false 
 
 
 func _on_exit_button_pressed() -> void:
