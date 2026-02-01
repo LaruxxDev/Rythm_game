@@ -24,7 +24,7 @@ func _ready() -> void:
 	Signalbus.fuego.connect(_on_fuego)
 	Signalbus.tierra.connect(_on_tierra)
 	Signalbus.planta.connect(_on_planta)
-
+	SceneManager.score = 0
 	mover_player()
 	start_round()
 
@@ -67,7 +67,8 @@ func spawn_enemies():
 	var enemi: CharacterBody2D = MINION.instantiate()
 	$Enemies.add_child(enemi)
 	enemi.global_position += distancia
-	enemi.animacion.flip_h = true
+	if enemi:
+		enemi.animacion.flip_h = true
 	lista_enemies.append(enemi)
 
 func check_enemie_die(tipo: String):
