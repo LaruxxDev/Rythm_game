@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://dspnjxurm1hua"
 Signalbus="*uid://cnbdqvb1wm645"
 LifeManager="*uid://mxl5em3acn3p"
 Talo="*uid://cf5txmco4tia4"
+SceneManager="*uid://cqqqc5ngalqol"
 
 [display]
 
