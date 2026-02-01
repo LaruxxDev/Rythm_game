@@ -46,14 +46,16 @@ func mover_enemy():
 func start_round():
 	ronda += 1
 	randomize()
-	var maskRandomNum = randi_range(0,3)
-	var maskListStr = ["tiki","tragi","plaga","japo"]
-	attack_mask(maskListStr[maskRandomNum])
+	
 	var num = randi_range(3,7)
 	for i in num:
 		spawn_enemies()
 	await mover_enemy()
 	beat_elemeto()
+	var maskRandomNum = randi_range(0,3)
+	var maskListStr = ["tiki","tragi","plaga","japo"]
+	await get_tree().create_timer(maskRandomNum).timeout
+	attack_mask(maskListStr[maskRandomNum])
 	await get_tree().create_timer(5).timeout
 
 	

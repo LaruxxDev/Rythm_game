@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://dpslr1mjsmikg"]
 
-[ext_resource type="Script" path="res://Scripts/UI/mask_hud.gd" id="1_sxgnw"]
+[ext_resource type="Script" uid="uid://dh23j703iwfqk" path="res://Scripts/UI/mask_hud.gd" id="1_sxgnw"]
 [ext_resource type="Texture2D" uid="uid://6gr4u8dic16t" path="res://Assets/Tiki_mask_true_x4.png" id="2_sxgnw"]
 [ext_resource type="Texture2D" uid="uid://dxoojuprpvmd2" path="res://Assets/Spells_boss_anim_x2.png" id="3_pkiv5"]
 [ext_resource type="Texture2D" uid="uid://bxoilgbr0vwcl" path="res://Assets/PlagueDoc_mask_x4.png" id="4_pkiv5"]
 [ext_resource type="Texture2D" uid="uid://dee2o2tnnugxj" path="res://Assets/Oni_mask_no_anim_x4.png" id="5_r8ugk"]
 [ext_resource type="Texture2D" uid="uid://p2tmlsyen0rt" path="res://Assets/Oni_mask_no_anim_x42.png" id="6_vfocd"]
+[ext_resource type="Texture2D" uid="uid://bwqjhyirvgvyu" path="res://Assets/Tragicomedy_mask_x4.png" id="7_vfocd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pkiv5"]
 atlas = ExtResource("2_sxgnw")
@@ -224,33 +225,33 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8wcor"]
-atlas = ExtResource("2_sxgnw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m70ps"]
+atlas = ExtResource("7_vfocd")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fo0ke"]
-atlas = ExtResource("2_sxgnw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wcor"]
+atlas = ExtResource("7_vfocd")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6byts"]
-atlas = ExtResource("2_sxgnw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo0ke"]
+atlas = ExtResource("7_vfocd")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hph6y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_m70ps")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8wcor")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fo0ke")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6byts")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [node name="MaskHUD" type="Control" unique_id=1370445093]
@@ -324,3 +325,4 @@ frame_progress = 0.3841005
 [node name="tragimask" type="AnimatedSprite2D" parent="tragi" unique_id=2099739960]
 sprite_frames = SubResource("SpriteFrames_hph6y")
 autoplay = "default"
+frame_progress = 0.5599223

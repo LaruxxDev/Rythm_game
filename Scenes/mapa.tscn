@@ -400,3 +400,4 @@ offset_bottom = 642.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1264806448]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=989186976 instance=ExtResource("15_604li")]
+visible = false
