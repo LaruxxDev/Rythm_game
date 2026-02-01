@@ -61,6 +61,5 @@ func take_damage(atq_tipo):
 
 func muerte():
 	#animacion.play(str(tipo,"_dead"))
-	await get_tree().create_timer(0.5).timeout
 	
 	queue_free()
