@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://b1tfalpbqlrje"]
 
 [ext_resource type="Script" uid="uid://dpnn6eswj34tn" path="res://Scripts/UI/controles_menu.gd" id="1_mfd7x"]
-[ext_resource type="Texture2D" uid="uid://djkkcxkd57f61" path="res://icon.svg" id="1_uwe0x"]
+[ext_resource type="Texture2D" uid="uid://c58h0kfmf8q8y" path="res://Assets/Menus_hud_x4.png" id="2_kk25c"]
 [ext_resource type="PackedScene" uid="uid://copfxmxci3l81" path="res://Scenes/UI/controles.tscn" id="3_mc0sm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc0sm"]
+atlas = ExtResource("2_kk25c")
+region = Rect2(0, 0, 384, 256)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwe0x"]
 
@@ -24,14 +28,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mfd7x")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=532237562]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1029794731]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.13077214, 0.13077214, 0.13077211, 1)
+texture = SubResource("AtlasTexture_mc0sm")
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=1693875473]
 layout_mode = 1
@@ -56,7 +60,6 @@ metadata/_tab_index = 0
 
 [node name="keyboardImage" type="TextureRect" parent="TabContainer/Keyboard" unique_id=1665173460]
 layout_mode = 2
-texture = ExtResource("1_uwe0x")
 
 [node name="Control" parent="TabContainer/Keyboard/keyboardImage" unique_id=1343091027 instance=ExtResource("3_mc0sm")]
 layout_mode = 0
@@ -81,7 +84,6 @@ metadata/_tab_index = 1
 
 [node name="MandoImage" type="TextureRect" parent="TabContainer/Mando" unique_id=760709478]
 layout_mode = 2
-texture = ExtResource("1_uwe0x")
 
 [node name="Control" parent="TabContainer/Mando/MandoImage" unique_id=1654747054 instance=ExtResource("3_mc0sm")]
 layout_mode = 0
