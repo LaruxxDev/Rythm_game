@@ -33,11 +33,11 @@ func _ready() -> void:
 	timer.wait_time = intervalo_beat
 	Signalbus.nuevo_beat.connect(_on_nuevo_beat)
 	Signalbus.win.connect(_on_win_round)
-	Signalbus.tiki_mask.connect(_on_win_round)
-	Signalbus.japo_mask.connect(_on_win_round)
-	Signalbus.tragicomedia_mask.connect(_on_win_round)
-	Signalbus.plaga_mask.connect(_on_win_round)
-	Signalbus.mask_off.connect(_on_win_round)
+	Signalbus.tiki_mask.connect(_on_tiki_mask)
+	Signalbus.japo_mask.connect(_on_japo_mask)
+	Signalbus.tragicomedia_mask.connect(_on_tragicomedia_mask)
+	Signalbus.plaga_mask.connect(_on_plaga_mask)
+	Signalbus.mask_off.connect(_on_mask_off)
 	_on_mask_off()
 	igualar_bpm()
 	if not musica.playing:
@@ -152,6 +152,7 @@ func _on_mask_off():
 	mute_masks("Plaga")
 
 func play_masks(tipo:String):
+	print(tipo)
 	var index = AudioServer.get_bus_index(tipo)
 	var tween: Tween = create_tween()
 	tween.tween_method(func(val):AudioServer.set_bus_volume_db(index,val),-80.0, 0,1 )

@@ -285,6 +285,7 @@ sources/2 = SubResource("TileSetAtlasSource_lkwsl")
 
 [node name="Mapa" type="Node2D" unique_id=763874456]
 script = ExtResource("1_p41nb")
+distancia = Vector2(85, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1257094710]
 

@@ -38,7 +38,6 @@ func mover_player():
 func mover_enemy():
 	var enemi = pos_enemy.global_position
 	for i in lista_enemies:
-		print(i.tipo)
 		i.posicion = enemi -distancia
 		enemi = i.posicion
 
@@ -47,7 +46,7 @@ func start_round():
 	ronda += 1
 	randomize()
 	var maskRandomNum = randi_range(0,3)
-	var maskListStr = ["tiki","tragi","plaga","japo"]
+	var maskListStr = ["tiki","tragicomedia","plaga","japo"]
 	attack_mask(maskListStr[maskRandomNum])
 	var num = randi_range(3,7)
 	for i in num:
@@ -62,7 +61,6 @@ func spawn_enemies():
 	$Enemies.add_child(enemi)
 	enemi.global_position += distancia
 	enemi.animacion.flip_h = true
-	print($Enemies.global_position)
 	lista_enemies.append(enemi)
 
 func check_enemie_die(tipo: String):
@@ -103,7 +101,7 @@ func ataque(tipo: String):
 	pass
 func hidrochorro():
 	$Player/Agua/AnimatedSprite2D2.visible = true
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1).timeout
 	$Player/Agua/AnimatedSprite2D2.visible = false
 
 func bolafuego(tipo):
@@ -156,10 +154,12 @@ func _on_planta():
 	check_enemie_die("Planta")
 
 func attack_mask(mask: String):
+	Signalbus.emit_signal(str(mask+"_mask"))
 	var maskNode = $MaskHUD.get_node(mask)
 	maskNode.visible = true
 	var maskAnim = maskNode.get_node(mask+"anim")
 	maskAnim.visible = true
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(6).timeout
 	maskAnim.visible = false
 	maskNode.visible = false
+	Signalbus.mask_off.emit()
