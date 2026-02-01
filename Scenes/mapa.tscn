@@ -397,9 +397,9 @@ tile_set = SubResource("TileSet_nl0av")
 
 [node name="MaskHUD" parent="." unique_id=1370445093 instance=ExtResource("11_nl0av")]
 offset_left = 593.0
-offset_top = 263.0
+offset_top = 276.0
 offset_right = 593.0
-offset_bottom = 263.0
+offset_bottom = 276.0
 
 [node name="HUD" parent="." unique_id=1441600353 instance=ExtResource("8_v1efw")]
 offset_left = 579.0

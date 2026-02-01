@@ -86,21 +86,27 @@ func _input(event: InputEvent) -> void:
 	if tiki_on:
 		if event.is_action_pressed("saltar"):
 			score += 1
+			$score.text = "[wave] [rainbow]%d" % score
+
 	if japo_on:
 		if event.is_action_pressed("esquivar"):
 			score += 1
+			$score.text = "[wave] [rainbow]%d" % score
+
 	if tragi_on:
 		if event.is_action_pressed("agacharse"):
 			score += 1
+			$score.text = "[wave] [rainbow]%d" % score
+
 	if plaga_on:
 		if event.is_action_pressed("esconderse"):
 			score += 1
-	print(score)
+			$score.text = "[wave] [rainbow]%d" % score
 
 
 
 func subir_bpm(num):
-	if musica.pitch_scale + num <= 1.1:
+	if musica.pitch_scale >= 1.1:
 		return
 	musica.pitch_scale += num
 	igualar_bpm()
@@ -119,7 +125,6 @@ func intentar_beat(time_margen, beat):
 		print("NO SPAMES POLLUELO")
 		return false
 	if not lista_comandos.is_empty() and lista_comandos[lista_comandos.size()-1] != beat-1:
-		Signalbus.fallo.emit()
 		$damage.play()
 
 		resetear_combo()
@@ -165,25 +170,49 @@ func _on_win_round():
 func _on_tiki_mask():
 	play_masks("Tiki")
 	tiki_on = true
-	$AnimatedSprite2D.play("tiki")
-
+	if mando_on():
+		$AnimatedSprite2D.play("tiki_2")
+	else:
+		$AnimatedSprite2D.play("tiki")
+func mando_on():
+	$score.visible = true
+	$score.text = "[wave] %d" % score
+	if Input.get_connected_joypads().size() > 0:
+		return true
+	else:
+		return false
+	
 func _on_japo_mask():
 	play_masks("Japo")
 	japo_on = true
-	$AnimatedSprite2D.play("oni")
+	if mando_on():
+		$AnimatedSprite2D.play("oni_2")
+	else:
+		$AnimatedSprite2D.play("oni")
 
 func _on_tragicomedia_mask():
 	play_masks("Tragi")
 	tragi_on = true
-	$AnimatedSprite2D.play("trag")
-
+	if mando_on():
+		$AnimatedSprite2D.play("trag_2")
+	else:
+		$AnimatedSprite2D.play("trag")
 func _on_plaga_mask():
 	play_masks("Plaga")
 	plaga_on = true
-	$AnimatedSprite2D.play("peste")
+	if mando_on():
+		$AnimatedSprite2D.play("peste_2")
+	else:
+		$AnimatedSprite2D.play("peste")
+func detallito():
+	$score.visible = true
+	await get_tree().create_timer(3).timeout
+	$score.visible = false
 
 func _on_mask_off():
 	$AnimatedSprite2D.visible = false
+	if $score.visible:
+		detallito()
 	tiki_on = false
 	japo_on = false
 	tragi_on = false
