@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bxoilgbr0vwcl" path="res://Assets/PlagueDoc_mask_x4.png" id="4_pkiv5"]
 [ext_resource type="Texture2D" uid="uid://dee2o2tnnugxj" path="res://Assets/Oni_mask_no_anim_x4.png" id="5_r8ugk"]
 [ext_resource type="Texture2D" uid="uid://p2tmlsyen0rt" path="res://Assets/Oni_mask_no_anim_x42.png" id="6_vfocd"]
+[ext_resource type="Texture2D" uid="uid://bv33t5cfcy58c" path="res://Assets/Tragicomedy_mask_x4.png" id="7_vfocd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pkiv5"]
 atlas = ExtResource("2_sxgnw")
@@ -224,29 +225,29 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8wcor"]
-atlas = ExtResource("2_sxgnw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m70ps"]
+atlas = ExtResource("7_vfocd")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fo0ke"]
-atlas = ExtResource("2_sxgnw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wcor"]
+atlas = ExtResource("7_vfocd")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6byts"]
-atlas = ExtResource("2_sxgnw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo0ke"]
+atlas = ExtResource("7_vfocd")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hph6y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_m70ps")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8wcor")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fo0ke")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6byts")
 }],
 "loop": true,
 "name": &"default",
