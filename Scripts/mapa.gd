@@ -48,7 +48,7 @@ func start_round():
 	$HUD.next_ronda(ronda)
 	
 	randomize()
-	if randi_range(70,100) >70:
+	if randi_range(0,100) >70:
 		var maskRandomNum = randi_range(0,3)
 		var maskListStr = ["tiki","tragicomedia","plaga","japo"]
 		await attack_mask(maskListStr[maskRandomNum])

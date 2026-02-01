@@ -4,7 +4,6 @@ extends Control
 
 @onready var sound_menu: Control = $SoundMenu
 @onready var controles_menu: Control = $ControlesMenu
-@onready var video_menu: Control = $VideoMenu
 
 func _on_controls_button_pressed() -> void:
 	controles_menu.visible = true
