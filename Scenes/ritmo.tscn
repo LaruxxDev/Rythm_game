@@ -44,27 +44,35 @@ position = Vector2(570, 40)
 
 [node name="Base" type="AudioStreamPlayer" parent="." unique_id=1857800486]
 stream = ExtResource("2_316ka")
+pitch_scale = 0.5
 autoplay = true
+bus = &"Base"
 
 [node name="Claqueta" type="AudioStreamPlayer" parent="." unique_id=1424893096]
 stream = ExtResource("3_yomdr")
+pitch_scale = 0.5
 autoplay = true
 
 [node name="Tiki" type="AudioStreamPlayer" parent="." unique_id=928214606]
 stream = ExtResource("4_ifm08")
 autoplay = true
+bus = &"Tiki"
 
 [node name="Japo" type="AudioStreamPlayer" parent="." unique_id=534726373]
 stream = ExtResource("5_fxr6j")
 autoplay = true
+bus = &"Japo"
 
 [node name="Tragicomedia" type="AudioStreamPlayer" parent="." unique_id=63049255]
 stream = ExtResource("6_s8ayg")
+volume_db = -0.65
 autoplay = true
+bus = &"Tragi"
 
 [node name="Plaga" type="AudioStreamPlayer" parent="." unique_id=566787052]
 stream = ExtResource("7_23brj")
 autoplay = true
+bus = &"Plaga"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=500565967]
 offset_left = 303.0
