@@ -2,10 +2,23 @@ extends TextureRect
 
 @export var pj :String
 var dialogos = {
-	"Minion": 
-	["Conquita el mundo","perrooooos"],
-	
-
+	"intro": 
+		["Somos un pueblo que adora a las máscaras.\nRecibimos nuestro poder de ellas.",
+		"Hace poco hemos recibido una señal de nuestros dioses enmascarados.\nQuieren acabar con nosotros.\nPero no se lo pondremos fácil.",
+		"El problema es que somos algo torpes.\n¡Por eso te necesitamos!\nGuíanos tocando el tambor divino para defendernos de nuestros vecinos hostiles."
+		],
+	"minion":
+		["No pasareis", 
+		" Aunque los dioses quieran erradicarlos\n Nosotros prevaleceremos"
+		],
+	"enemi":
+		["Ni lo soñeis\n Nosotros somos quienes quedaremos en pie",
+		 "Preparaos para sufrir el destino que se os ha impuesto"
+		],
+	"mask":
+		["Puede que hayáis acabado con mis fieles… Pero no permitiré vuestra herejía", 
+		"¡CAED!"
+		]
 }
 
 var cont = 0
@@ -32,6 +45,7 @@ func _process(_delta: float) -> void:
 func mostrar_dialogo():
 	
 	if list.size() > 0 :
+		cont = 0
 		$RichTextLabel2.text = list[0]
 		visible = true
 		set_process(true)
