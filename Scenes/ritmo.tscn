@@ -3,12 +3,97 @@
 [ext_resource type="Script" uid="uid://c8uppgfp7h7k5" path="res://Scripts/ritmo.gd" id="1_316ka"]
 [ext_resource type="AudioStream" uid="uid://gbbyhrvmf4r6" path="res://Assets/Songs/musica_base.wav" id="2_316ka"]
 [ext_resource type="Texture2D" uid="uid://0c4vv8y2p64g" path="res://Assets/beat.png" id="2_k8pxl"]
+[ext_resource type="Texture2D" uid="uid://dtye16cllj3vo" path="res://Assets/Keyboard Letters and Symbols.png" id="3_r8rjx"]
 [ext_resource type="AudioStream" uid="uid://cn4owhsq7to2u" path="res://Assets/Songs/Claqueta.wav" id="3_yomdr"]
 [ext_resource type="AudioStream" uid="uid://dnn7se8jy1vp8" path="res://Assets/Songs/musica_tiki.wav" id="4_ifm08"]
 [ext_resource type="AudioStream" uid="uid://c3c306dosiyfb" path="res://Assets/Songs/musica_japo.wav" id="5_fxr6j"]
 [ext_resource type="AudioStream" uid="uid://du2xr65ksgmf" path="res://Assets/Songs/musica_griega.wav" id="6_s8ayg"]
 [ext_resource type="AudioStream" uid="uid://cqtsg7ct8pt6e" path="res://Assets/Songs/musica_peste.wav" id="7_23brj"]
 [ext_resource type="Texture2D" uid="uid://b80wcb5lq8yxw" path="res://Assets/branch_hud2_x4.png" id="8_23brj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpg01"]
+atlas = ExtResource("3_r8rjx")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7okj"]
+atlas = ExtResource("3_r8rjx")
+region = Rect2(48, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_525mq"]
+atlas = ExtResource("3_r8rjx")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awsvs"]
+atlas = ExtResource("3_r8rjx")
+region = Rect2(0, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meuv5"]
+atlas = ExtResource("3_r8rjx")
+region = Rect2(96, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqbiw"]
+atlas = ExtResource("3_r8rjx")
+region = Rect2(96, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur34p"]
+atlas = ExtResource("3_r8rjx")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpwid"]
+atlas = ExtResource("3_r8rjx")
+region = Rect2(32, 176, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_am2e2"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpg01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7okj")
+}],
+"loop": true,
+"name": &"oni",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_525mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awsvs")
+}],
+"loop": true,
+"name": &"peste",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_meuv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqbiw")
+}],
+"loop": true,
+"name": &"tiki",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur34p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpwid")
+}],
+"loop": true,
+"name": &"trag",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k8pxl"]
 atlas = ExtResource("8_23brj")
@@ -36,9 +121,16 @@ position = Vector2(361, 40)
 position = Vector2(571, 58)
 texture = ExtResource("2_k8pxl")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1866439681]
+position = Vector2(571, 114)
+scale = Vector2(3.8, 3.8)
+sprite_frames = SubResource("SpriteFrames_am2e2")
+animation = &"idle"
+autoplay = "idle"
+
 [node name="Base" type="AudioStreamPlayer" parent="." unique_id=1857800486]
 stream = ExtResource("2_316ka")
-pitch_scale = 0.7
+pitch_scale = 0.5
 autoplay = true
 bus = &"Base"
 

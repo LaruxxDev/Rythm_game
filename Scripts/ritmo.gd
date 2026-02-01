@@ -12,7 +12,7 @@ var lista_comandos = []
 var lista_enemigos= []
 var intervalo_beat = 0.0
 
-var textura 
+var textura : Texture
 
 @onready var musica: AudioStreamPlayer = $Base
 @onready var claqueta: AudioStreamPlayer = $Claqueta
@@ -23,7 +23,11 @@ var textura
 
 @onready var ui_beat = $Sprite2D
 @onready var timer: Timer = $Timer
-
+var score = 0
+var tiki_on = false
+var japo_on = false
+var tragi_on = false
+var plaga_on = false
 
 func _ready() -> void:
 	ui_beat.visible = false
@@ -59,7 +63,7 @@ func _physics_process(_delta: float) -> void:
 		ultimo_beat = beat_actual
 		#enviar_bit()
 		_on_nuevo_beat()
-		Signalbus.nuevo_beat.emit()
+		#Signalbus.nuevo_beat.emit()
 
 	var index_beat_cercano = round(pos_cancion / intervalo_beat)
 	var time_beat_cercano = index_beat_cercano * intervalo_beat
@@ -78,7 +82,26 @@ func _physics_process(_delta: float) -> void:
 		if intentar_beat(time_margen, index_beat_cercano):
 			Signalbus.planta.emit()
 
+func _input(event: InputEvent) -> void:
+	if tiki_on:
+		if event.is_action_pressed("saltar"):
+			score += 1
+	if japo_on:
+		if event.is_action_pressed("esquivar"):
+			score += 1
+	if tragi_on:
+		if event.is_action_pressed("agacharse"):
+			score += 1
+	if plaga_on:
+		if event.is_action_pressed("esconderse"):
+			score += 1
+	print(score)
+
+
+
 func subir_bpm(num):
+	if musica.pitch_scale + num <= 1.1:
+		return
 	musica.pitch_scale += num
 	igualar_bpm()
 
@@ -116,15 +139,16 @@ func resetear_combo():
 	lista_comandos.clear()
 
 func _on_nuevo_beat():
-	if textura:
+	if textura :
 		ui_beat.texture = textura
-	ui_beat.visible = true
-
+	
+	ui_beat.visible = !ui_beat.visible
+	
 	var tween = create_tween()
 	
 	tween.tween_interval(margen)
 	
-	tween.tween_callback(func(): ui_beat.visible = false)
+	tween.tween_callback(func(): ui_beat.visible = !ui_beat.visible)
 
 func _on_timer_timeout() -> void:
 	timer.wait_time = intervalo_beat
@@ -136,23 +160,37 @@ func _on_win_round():
 	
 func _on_tiki_mask():
 	play_masks("Tiki")
+	tiki_on = true
+	$AnimatedSprite2D.play("tiki")
 
 func _on_japo_mask():
 	play_masks("Japo")
+	japo_on = true
+	$AnimatedSprite2D.play("oni")
 
 func _on_tragicomedia_mask():
 	play_masks("Tragi")
+	tragi_on = true
+	$AnimatedSprite2D.play("trag")
 
 func _on_plaga_mask():
 	play_masks("Plaga")
+	plaga_on = true
+	$AnimatedSprite2D.play("peste")
 
 func _on_mask_off():
+	$AnimatedSprite2D.visible = false
+	tiki_on = false
+	japo_on = false
+	tragi_on = false
+	plaga_on = false
 	mute_masks("Tiki")
 	mute_masks("Japo")
 	mute_masks("Tragi")
 	mute_masks("Plaga")
 
 func play_masks(tipo:String):
+	$AnimatedSprite2D.visible = true
 	var index = AudioServer.get_bus_index(tipo)
 	var tween: Tween = create_tween()
 	tween.tween_method(func(val):AudioServer.set_bus_volume_db(index,val),-80.0, 0,1 )

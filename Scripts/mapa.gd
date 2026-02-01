@@ -48,7 +48,7 @@ func start_round():
 	if randi_range(0,100) >70:
 		var maskRandomNum = randi_range(0,3)
 		var maskListStr = ["tiki","tragicomedia","plaga","japo"]
-		attack_mask(maskListStr[maskRandomNum])
+		await attack_mask(maskListStr[maskRandomNum])
 		Signalbus.increchendo.emit(0.05)
 	var num = randi_range(3,7)
 	for i in num:
