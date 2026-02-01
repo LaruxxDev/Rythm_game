@@ -31,6 +31,7 @@ func _ready() -> void:
 
 	intervalo_beat = 60.0 / bpm 
 	timer.wait_time = intervalo_beat
+	Signalbus.increchendo.connect(subir_bpm)
 	Signalbus.nuevo_beat.connect(_on_nuevo_beat)
 	Signalbus.win.connect(_on_win_round)
 	Signalbus.tiki_mask.connect(_on_tiki_mask)
@@ -156,7 +157,6 @@ func play_masks(tipo:String):
 	var index = AudioServer.get_bus_index(tipo)
 	var tween: Tween = create_tween()
 	tween.tween_method(func(val):AudioServer.set_bus_volume_db(index,val),-80.0, 0,1 )
-	mute_masks("Base")
 
 func mute_masks(tipo:String):
 	var index = AudioServer.get_bus_index(tipo)

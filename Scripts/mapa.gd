@@ -49,6 +49,7 @@ func start_round():
 		var maskRandomNum = randi_range(0,3)
 		var maskListStr = ["tiki","tragicomedia","plaga","japo"]
 		attack_mask(maskListStr[maskRandomNum])
+		
 	var num = randi_range(3,7)
 	for i in num:
 		spawn_enemies()
@@ -160,7 +161,7 @@ func attack_mask(mask: String):
 	maskNode.visible = true
 	var maskAnim = maskNode.get_node(mask+"anim")
 	maskAnim.visible = true
-	await get_tree().create_timer(6).timeout
+	await get_tree().create_timer(30).timeout
 	maskAnim.visible = false
 	maskNode.visible = false
 	Signalbus.mask_off.emit()
