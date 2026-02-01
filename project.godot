@@ -28,10 +28,9 @@ SceneManager="*uid://cqqqc5ngalqol"
 
 [display]
 
-window/size/mode=2
+window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="canvas_items"
-window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
