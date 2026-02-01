@@ -278,6 +278,7 @@ texture_filter = 1
 position = Vector2(-303.99997, 192)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_al7cl")
+autoplay = "default"
 
 [node name="plaga" type="Node2D" parent="." unique_id=1890557651]
 visible = false

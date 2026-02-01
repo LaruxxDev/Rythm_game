@@ -184,6 +184,8 @@ func _on_mask_off():
 	japo_on = false
 	tragi_on = false
 	plaga_on = false
+	Signalbus.kill.emit(score)
+	score = 0
 	mute_masks("Tiki")
 	mute_masks("Japo")
 	mute_masks("Tragi")

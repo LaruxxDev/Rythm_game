@@ -381,15 +381,15 @@ autoplay = "flechas"
 
 [node name="Label4" type="Label" parent="." unique_id=1642326347]
 layout_mode = 0
-offset_left = -208.0
+offset_left = -233.0
 offset_top = -16.0
-offset_right = -131.0
+offset_right = -156.0
 offset_bottom = 19.0
 text = "Planta"
 label_settings = SubResource("LabelSettings_kk25c")
 
 [node name="Izquierda" type="AnimatedSprite2D" parent="Label4" unique_id=1428030627]
-position = Vector2(127.99999, 15.999998)
+position = Vector2(153, 15.999998)
 scale = Vector2(5.5, 5.5)
 sprite_frames = SubResource("SpriteFrames_it1da")
 animation = &"esquives"
