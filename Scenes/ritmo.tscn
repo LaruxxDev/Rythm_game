@@ -5,12 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://0c4vv8y2p64g" path="res://Assets/beat.png" id="2_k8pxl"]
 [ext_resource type="Texture2D" uid="uid://dtye16cllj3vo" path="res://Assets/Keyboard Letters and Symbols.png" id="3_r8rjx"]
 [ext_resource type="AudioStream" uid="uid://cn4owhsq7to2u" path="res://Assets/Songs/Claqueta.wav" id="3_yomdr"]
+[ext_resource type="Texture2D" uid="uid://crdvc3lkwju1n" path="res://Assets/controller-icons/dpad/xbox/tile_0172.png" id="4_am2e2"]
 [ext_resource type="AudioStream" uid="uid://dnn7se8jy1vp8" path="res://Assets/Songs/musica_tiki.wav" id="4_ifm08"]
+[ext_resource type="Texture2D" uid="uid://111jymg1pth7" path="res://Assets/controller-icons/dpad/xbox/tile_0206.png" id="5_fcqkv"]
 [ext_resource type="AudioStream" uid="uid://c3c306dosiyfb" path="res://Assets/Songs/musica_japo.wav" id="5_fxr6j"]
+[ext_resource type="Texture2D" uid="uid://bulqtdo377i35" path="res://Assets/controller-icons/dpad/xbox/tile_0174.png" id="6_dh8dh"]
 [ext_resource type="AudioStream" uid="uid://du2xr65ksgmf" path="res://Assets/Songs/musica_griega.wav" id="6_s8ayg"]
 [ext_resource type="AudioStream" uid="uid://cqtsg7ct8pt6e" path="res://Assets/Songs/musica_peste.wav" id="7_23brj"]
+[ext_resource type="Texture2D" uid="uid://c02ho0mppgrmh" path="res://Assets/controller-icons/dpad/xbox/tile_0208.png" id="7_srqah"]
+[ext_resource type="Texture2D" uid="uid://bf16pqx64tuh3" path="res://Assets/controller-icons/dpad/xbox/tile_0171.png" id="8_1s5m0"]
 [ext_resource type="Texture2D" uid="uid://b80wcb5lq8yxw" path="res://Assets/branch_hud2_x4.png" id="8_23brj"]
+[ext_resource type="Texture2D" uid="uid://cgkcxr6jxqwk1" path="res://Assets/controller-icons/dpad/xbox/tile_0205.png" id="9_1lenk"]
+[ext_resource type="Texture2D" uid="uid://ctqb1j6k1ue5r" path="res://Assets/controller-icons/dpad/xbox/tile_0173.png" id="10_itcxc"]
+[ext_resource type="Texture2D" uid="uid://crhmovifeu8gd" path="res://Assets/controller-icons/dpad/xbox/tile_0207.png" id="11_m2b8a"]
 [ext_resource type="AudioStream" uid="uid://d0auqhhsqep2j" path="res://Assets/Voces_Conjuntas/Casting_1.wav" id="11_rpg01"]
+[ext_resource type="FontFile" uid="uid://cqg6jpmf62b3j" path="res://Assets/Epson Pixeled.ttf" id="20_fcqkv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpg01"]
 atlas = ExtResource("3_r8rjx")
@@ -20,6 +29,14 @@ region = Rect2(48, 32, 16, 16)
 atlas = ExtResource("3_r8rjx")
 region = Rect2(48, 144, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg8sw"]
+atlas = ExtResource("4_am2e2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjwa7"]
+atlas = ExtResource("5_fcqkv")
+region = Rect2(0, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_525mq"]
 atlas = ExtResource("3_r8rjx")
 region = Rect2(0, 32, 16, 16)
@@ -27,6 +44,14 @@ region = Rect2(0, 32, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_awsvs"]
 atlas = ExtResource("3_r8rjx")
 region = Rect2(0, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twxhc"]
+atlas = ExtResource("6_dh8dh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4hox"]
+atlas = ExtResource("7_srqah")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_meuv5"]
 atlas = ExtResource("3_r8rjx")
@@ -36,6 +61,14 @@ region = Rect2(96, 64, 16, 16)
 atlas = ExtResource("3_r8rjx")
 region = Rect2(96, 176, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dc33"]
+atlas = ExtResource("8_1s5m0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gmoj"]
+atlas = ExtResource("9_1lenk")
+region = Rect2(0, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur34p"]
 atlas = ExtResource("3_r8rjx")
 region = Rect2(32, 64, 16, 16)
@@ -43,6 +76,14 @@ region = Rect2(32, 64, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dpwid"]
 atlas = ExtResource("3_r8rjx")
 region = Rect2(32, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1y3y"]
+atlas = ExtResource("10_itcxc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iyx6"]
+atlas = ExtResource("11_m2b8a")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_am2e2"]
 animations = [{
@@ -64,6 +105,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_sg8sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjwa7")
+}],
+"loop": true,
+"name": &"oni_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_525mq")
 }, {
 "duration": 1.0,
@@ -71,6 +123,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"peste",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twxhc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4hox")
+}],
+"loop": true,
+"name": &"peste_2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -86,6 +149,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4dc33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gmoj")
+}],
+"loop": true,
+"name": &"tiki_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ur34p")
 }, {
 "duration": 1.0,
@@ -93,6 +167,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"trag",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1y3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iyx6")
+}],
+"loop": true,
+"name": &"trag_2",
 "speed": 5.0
 }]
 
@@ -123,8 +208,9 @@ position = Vector2(571, 58)
 texture = ExtResource("2_k8pxl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1866439681]
+visible = false
 position = Vector2(571, 114)
-scale = Vector2(3.8, 3.8)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_am2e2")
 animation = &"idle"
 autoplay = "idle"
@@ -181,5 +267,17 @@ flip_h = true
 [node name="win" type="AudioStreamPlayer" parent="." unique_id=623235363]
 stream = ExtResource("11_rpg01")
 volume_db = -12.312
+
+[node name="score" type="RichTextLabel" parent="." unique_id=573235182]
+offset_left = 679.0
+offset_top = 154.0
+offset_right = 951.0951
+offset_bottom = 194.0
+rotation = -0.45087296
+theme_override_fonts/normal_font = ExtResource("20_fcqkv")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[wave]holaaaa"
+fit_content = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
