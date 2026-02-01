@@ -45,9 +45,10 @@ func mover_enemy():
 func start_round():
 	ronda += 1
 	randomize()
-	var maskRandomNum = randi_range(0,3)
-	var maskListStr = ["tiki","tragicomedia","plaga","japo"]
-	attack_mask(maskListStr[maskRandomNum])
+	if randi_range(0,100) >70:
+		var maskRandomNum = randi_range(0,3)
+		var maskListStr = ["tiki","tragicomedia","plaga","japo"]
+		attack_mask(maskListStr[maskRandomNum])
 	var num = randi_range(3,7)
 	for i in num:
 		spawn_enemies()
