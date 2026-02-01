@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://b8hp5ieku3o1o"]
+
+[ext_resource type="Script" uid="uid://du0hfyps7ur81" path="res://Scripts/UI/tutorial_controles.gd" id="1_nt2f7"]
+[ext_resource type="PackedScene" uid="uid://copfxmxci3l81" path="res://Scenes/UI/controles.tscn" id="1_pbuok"]
+
+[node name="tutorialControles" type="Control" unique_id=1274051472]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nt2f7")
+
+[node name="Label" type="Label" parent="." unique_id=808087532]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -147.0
+offset_top = 58.0
+offset_right = 147.0
+offset_bottom = 127.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Remember!!"
+
+[node name="ContinueButton" type="Button" parent="." unique_id=1182176715]
+layout_mode = 0
+offset_left = 483.0
+offset_top = 498.0
+offset_right = 562.0
+offset_bottom = 529.0
+theme_override_font_sizes/font_size = 25
+text = "Continue"
+
+[node name="mando" type="HBoxContainer" parent="." unique_id=193589224]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 500
+alignment = 1
+
+[node name="Control" parent="mando" unique_id=1343091027 instance=ExtResource("1_pbuok")]
+layout_mode = 2
+textura = "flechas"
+
+[node name="Control2" parent="mando" unique_id=652065432 instance=ExtResource("1_pbuok")]
+layout_mode = 2
+textura = "esquives"
+
+[node name="teclado" type="HBoxContainer" parent="." unique_id=1687476751]
+layout_mode = 0
+offset_left = 809.0
+offset_top = 318.0
+offset_right = 1309.0
+offset_bottom = 358.0
+theme_override_constants/separation = -500
+
+[node name="Control3" parent="teclado" unique_id=1067611675 instance=ExtResource("1_pbuok")]
+layout_mode = 2
+textura = "mando_esq"
+
+[node name="Control4" parent="teclado" unique_id=600461100 instance=ExtResource("1_pbuok")]
+layout_mode = 2
+textura = "mando_atq"
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
