@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bg4o2f1de27pa"
+path="res://.godot/imported/Caico Bat - bola de fuego-002.wav-5d5bf11088e81e490dede72f47a7f6aa.sample"
+
+[deps]
+
+source_file="res://Assets/SFX_Ataque_Minions/Caico Bat - bola de fuego-002.wav"
+dest_files=["res://.godot/imported/Caico Bat - bola de fuego-002.wav-5d5bf11088e81e490dede72f47a7f6aa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

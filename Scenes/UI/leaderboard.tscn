@@ -71,13 +71,11 @@ layout_mode = 2
 
 [node name="Username" type="TextEdit" parent="UI/MarginContainer/VBoxContainer" unique_id=129197876]
 unique_name_in_owner = true
-visible = false
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-size_flags_horizontal = 4
 placeholder_text = "Username"
 
 [node name="Submit" type="Button" parent="UI/MarginContainer/VBoxContainer" unique_id=881924881]
-visible = false
 layout_mode = 2
 text = "Add Entry"
 

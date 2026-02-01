@@ -40,18 +40,21 @@ func mover_enemy():
 	for i in lista_enemies:
 		i.posicion = enemi -distancia
 		enemi = i.posicion
+	$SFX/sorpresa.play()
 
 
 func start_round():
 	ronda += 1
+	$HUD.next_ronda(ronda)
+	
 	randomize()
-	if randi_range(0,100) >70:
+	if randi_range(0,100) >60:
 		var maskRandomNum = randi_range(0,3)
 		var maskListStr = ["tiki","tragicomedia","plaga","japo"]
 		await attack_mask(maskListStr[maskRandomNum])
-		await get_tree().create_timer(15).timeout
+		await get_tree().create_timer(2).timeout
 		
-		Signalbus.increchendo.emit(0.05)
+		Signalbus.increchendo.emit(0.1)
 	var num = randi_range(3,7)
 	for i in num:
 		spawn_enemies()
@@ -74,6 +77,7 @@ func check_enemie_die(tipo: String):
 			lista_enemies.pop_back()
 			beat_elemeto()
 			if lista_enemies.is_empty():
+				$SFX/win.play()
 				Signalbus.win.emit()
 				start_round()
 
@@ -95,12 +99,16 @@ func beat_elemeto():
 func ataque(tipo: String):
 	match tipo:
 		"Agua":
+			$SFX/agua.play()
 			hidrochorro()
 		"Fuego":
+			$SFX/fuego.play()
 			bolafuego(tipo)
 		"Planta":
+			$SFX/planta.play()
 			bolaplanta(tipo)
 		"Tierra":
+			$SFX/roca.play()
 			bolatierra(tipo)
 	pass
 func hidrochorro():
@@ -163,7 +171,7 @@ func attack_mask(mask: String):
 	maskNode.visible = true
 	var maskAnim = maskNode.get_node(mask+"anim")
 	maskAnim.visible = true
-	await get_tree().create_timer(15).timeout
+	await get_tree().create_timer(20).timeout
 	maskAnim.visible = false
 	maskNode.visible = false
 	Signalbus.mask_off.emit()

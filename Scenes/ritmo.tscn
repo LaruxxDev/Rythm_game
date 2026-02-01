@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://du2xr65ksgmf" path="res://Assets/Songs/musica_griega.wav" id="6_s8ayg"]
 [ext_resource type="AudioStream" uid="uid://cqtsg7ct8pt6e" path="res://Assets/Songs/musica_peste.wav" id="7_23brj"]
 [ext_resource type="Texture2D" uid="uid://b80wcb5lq8yxw" path="res://Assets/branch_hud2_x4.png" id="8_23brj"]
+[ext_resource type="AudioStream" uid="uid://d0auqhhsqep2j" path="res://Assets/Voces_Conjuntas/Casting_1.wav" id="11_rpg01"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpg01"]
 atlas = ExtResource("3_r8rjx")
@@ -130,7 +131,7 @@ autoplay = "idle"
 
 [node name="Base" type="AudioStreamPlayer" parent="." unique_id=1857800486]
 stream = ExtResource("2_316ka")
-pitch_scale = 0.5
+pitch_scale = 1.1
 autoplay = true
 bus = &"Base"
 
@@ -174,5 +175,11 @@ texture = SubResource("AtlasTexture_k8pxl")
 layout_mode = 2
 texture = SubResource("AtlasTexture_r8rjx")
 flip_h = true
+
+[node name="damage" type="AudioStreamPlayer" parent="." unique_id=1991919383]
+
+[node name="win" type="AudioStreamPlayer" parent="." unique_id=623235363]
+stream = ExtResource("11_rpg01")
+volume_db = -12.312
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

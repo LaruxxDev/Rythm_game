@@ -14,6 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://bibvterjfeeyr" path="res://Scenes/UI/hud.tscn" id="8_v1efw"]
 [ext_resource type="Script" uid="uid://cwn24hu57oybm" path="res://Scripts/UI/nuebe2.gd" id="8_yq38d"]
 [ext_resource type="PackedScene" uid="uid://dpslr1mjsmikg" path="res://Scenes/UI/mask_hud.tscn" id="11_nl0av"]
+[ext_resource type="AudioStream" uid="uid://c4lqyx4qrnjve" path="res://Assets/SFX_Ataque_Mascara/Calico Bat - Mascara_Aparece -001.wav" id="15_qguc3"]
+[ext_resource type="AudioStream" uid="uid://dc3skmilccdrv" path="res://Assets/SFX_Ataque_Mascara/Calico Bat - Mascara_Desaparece -001.wav" id="16_yqu4s"]
+[ext_resource type="AudioStream" uid="uid://cf6lgq187u8t7" path="res://Assets/SFX_Ataque_Minions/Caico Bat - bola de fuego-001.wav" id="17_4yu56"]
+[ext_resource type="AudioStream" uid="uid://3y3so4ij3jqm" path="res://Assets/SFX_Ataque_Minions/Calico Bat agua -002.wav" id="18_r8djo"]
+[ext_resource type="AudioStream" uid="uid://cxcw2sk3sjm56" path="res://Assets/SFX_Ataque_Minions/Calico Bat Rocas -001 -001.wav" id="19_cjh4u"]
+[ext_resource type="AudioStream" uid="uid://bpcxap2ejaalw" path="res://Assets/SFX_Ataque_Minions/Calico Bat Planta zip -001.wav" id="20_anodm"]
+[ext_resource type="AudioStream" uid="uid://bcds84xjn8mg1" path="res://Assets/Voces_Conjuntas/Round_Success_1.wav" id="21_nnce2"]
+[ext_resource type="AudioStream" uid="uid://nkh831wriyiq" path="res://Assets/Voces_Conjuntas/Surprise_Mask_2.wav" id="22_yqu4s"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q3a25"]
 
@@ -331,6 +339,8 @@ tipo = "Planta"
 position = Vector2(82, 412)
 
 [node name="Ritmo" parent="." unique_id=1441584467 instance=ExtResource("3_vm3su")]
+position = Vector2(-275, 0)
+scale = Vector2(1.5155401, 1.5155401)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1601977040]
 tile_map_data = PackedByteArray("AAARAAkAAAAFAAMAAAAAAAkAAAAAAAMAAAAAAAgAAAAAAAAAAAARAAgAAAAFAAAAAAANAAgAAAABAAAAAAAOAAgAAAACAAAAAAAPAAgAAAADAAAAAAAQAAgAAAAEAAAAAAAJAAgAAAABAAAAAAAKAAgAAAACAAAAAAALAAgAAAADAAAAAAAMAAgAAAAEAAAAAAAFAAgAAAABAAAAAAAGAAgAAAACAAAAAAAHAAgAAAADAAAAAAAIAAgAAAAEAAAAAAABAAgAAAABAAAAAAACAAgAAAACAAAAAAADAAgAAAADAAAAAAAEAAgAAAAEAAAAAAABAAkAAAABAAMAAAACAAkAAAACAAMAAAADAAkAAAADAAMAAAAEAAkAAAAEAAMAAAAFAAkAAAABAAMAAAAGAAkAAAACAAMAAAAHAAkAAAADAAMAAAAIAAkAAAABAAMAAAAJAAkAAAACAAMAAAAKAAkAAAADAAMAAAALAAkAAAABAAMAAAAMAAkAAAACAAMAAAANAAkAAAADAAMAAAAOAAkAAAABAAMAAAAPAAkAAAACAAMAAAAQAAkAAAADAAMAAAA=")
@@ -386,13 +396,39 @@ tile_map_data = PackedByteArray("AAAAAAkAAAAAAAAAAAABAAkAAAABAAAAAAACAAkAAAABAAA
 tile_set = SubResource("TileSet_nl0av")
 
 [node name="MaskHUD" parent="." unique_id=1370445093 instance=ExtResource("11_nl0av")]
-offset_left = 565.0
-offset_top = 200.0
-offset_right = 565.0
-offset_bottom = 200.0
+offset_left = 593.0
+offset_top = 263.0
+offset_right = 593.0
+offset_bottom = 263.0
 
 [node name="HUD" parent="." unique_id=1441600353 instance=ExtResource("8_v1efw")]
 offset_left = 579.0
 offset_top = 642.0
 offset_right = 579.0
 offset_bottom = 642.0
+
+[node name="SFX" type="Node" parent="." unique_id=331348232]
+
+[node name="aparece" type="AudioStreamPlayer" parent="SFX" unique_id=191581725]
+stream = ExtResource("15_qguc3")
+
+[node name="desaparece" type="AudioStreamPlayer" parent="SFX" unique_id=486547351]
+stream = ExtResource("16_yqu4s")
+
+[node name="fuego" type="AudioStreamPlayer" parent="SFX" unique_id=667714633]
+stream = ExtResource("17_4yu56")
+
+[node name="agua" type="AudioStreamPlayer" parent="SFX" unique_id=1126887364]
+stream = ExtResource("18_r8djo")
+
+[node name="roca" type="AudioStreamPlayer" parent="SFX" unique_id=475557783]
+stream = ExtResource("19_cjh4u")
+
+[node name="planta" type="AudioStreamPlayer" parent="SFX" unique_id=1624892056]
+stream = ExtResource("20_anodm")
+
+[node name="win" type="AudioStreamPlayer" parent="SFX" unique_id=631051632]
+stream = ExtResource("21_nnce2")
+
+[node name="sorpresa" type="AudioStreamPlayer" parent="SFX" unique_id=1165954803]
+stream = ExtResource("22_yqu4s")

@@ -115,21 +115,25 @@ func igualar_bpm():
 func intentar_beat(time_margen, beat):
 	if beat == hit_beat or beat == historial+1:
 		Signalbus.fallo.emit()
+		$damage.play()
 		print("NO SPAMES POLLUELO")
 		return false
 	if not lista_comandos.is_empty() and lista_comandos[lista_comandos.size()-1] != beat-1:
 		Signalbus.fallo.emit()
+		$damage.play()
+
 		resetear_combo()
 		print("te as saltado 1")
 		return true
 	
 	if time_margen <= margen:
 		print("Perfecto!! Beat: ", beat, " - ",time_margen)
-		
+		$win.play()
 		hit_beat = beat
 		lista_comandos.append(beat)
 		return true
 	else:
+		
 		print("Fallaste bribon (Diff: ", time_margen, ")")
 		return false
 	

@@ -19,10 +19,12 @@ func _ready() -> void:
 	await _load_entries()
 	_set_entry_count()
 	back_button.grab_focus()
+	score = SceneManager.score
 
 
 func _on_kill(num:int):
 	score+= num
+	print(score)
 
 
 func _set_entry_count():
@@ -77,8 +79,7 @@ func _on_submit_pressed() -> void:
 	await Talo.players.identify("username", username.text)
 
 	var res = await Talo.leaderboards.add_entry(leaderboard_internal_name, score)
-	info_label.text = "You scored %s points" % [score, " Your highscore was updated!" if res[1] else ""]
-
+	info_label.text = "You scored %s points" % score
 	_build_entries()
 
 

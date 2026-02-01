@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dc3skmilccdrv"
+path="res://.godot/imported/Calico Bat - Mascara_Desaparece -001.wav-1e2ad27bbb68355d2bdd44b4ae18ee23.sample"
+
+[deps]
+
+source_file="res://Assets/SFX_Ataque_Mascara/Calico Bat - Mascara_Desaparece -001.wav"
+dest_files=["res://.godot/imported/Calico Bat - Mascara_Desaparece -001.wav-1e2ad27bbb68355d2bdd44b4ae18ee23.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
