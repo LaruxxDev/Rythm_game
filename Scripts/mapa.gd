@@ -58,9 +58,10 @@ func start_round():
 
 	
 func spawn_enemies():
-	var enemi = MINION.instantiate()
+	var enemi: CharacterBody2D = MINION.instantiate()
 	$Enemies.add_child(enemi)
 	enemi.global_position += distancia
+	enemi.animacion.flip_h = true
 	print($Enemies.global_position)
 	lista_enemies.append(enemi)
 
