@@ -10,6 +10,11 @@ extends Node2D
 
 const MINION = preload("uid://d4ka1nlwrsu5c")
 const BULLET = preload("res://Scenes/bullet.tscn")
+const PLANTA = preload("uid://cw5sw2i8u2axx")
+const FUEGO = preload("uid://piih1tebyb8f")
+const BEAT = preload("uid://0c4vv8y2p64g")
+const AGUA = preload("uid://2ewi4h56rm1l")
+const TIERRA = preload("uid://4fkhik222gu0")
 
 var lista_enemies = []
 var ronda = 0
@@ -48,6 +53,7 @@ func start_round():
 	for i in num:
 		spawn_enemies()
 	await mover_enemy()
+	beat_elemeto()
 	await get_tree().create_timer(5).timeout
 
 	
@@ -63,8 +69,25 @@ func check_enemie_die(tipo: String):
 		ataque(tipo)
 		if lista_enemies[-1].take_damage(tipo):
 			lista_enemies.pop_back()
+			beat_elemeto()
 			if lista_enemies.is_empty():
+				Signalbus.win.emit()
 				start_round()
+
+func beat_elemeto():
+	if lista_enemies.is_empty():
+		$Ritmo.textura = BEAT
+		return
+	match lista_enemies[-1].tipo:
+		"Fuego":
+			$Ritmo.textura = AGUA
+		"Planta":
+			$Ritmo.textura = FUEGO
+		"Tierra":
+			$Ritmo.textura = PLANTA
+		"Agua":
+			$Ritmo.textura = TIERRA
+		
 
 func ataque(tipo: String):
 	match tipo:

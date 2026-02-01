@@ -3,7 +3,7 @@ extends Node2D
 const BIT = preload("uid://oplnfghwhb2l")
 
 var bpm : int = 120
-@export var margen : float = 0.30 # Margen de error 
+@export var margen : float = 0.35 # Margen de error 
 var ultimo_beat = -1
 
 var historial = -1
@@ -12,6 +12,8 @@ var lista_comandos = []
 var lista_enemigos= []
 var intervalo_beat = 0.0
 
+var textura 
+
 @onready var musica: AudioStreamPlayer = $Base
 @onready var claqueta: AudioStreamPlayer = $Claqueta
 @onready var tiki: AudioStreamPlayer = $Tiki
@@ -19,7 +21,7 @@ var intervalo_beat = 0.0
 @onready var tragicomedia: AudioStreamPlayer = $Tragicomedia
 @onready var plaga: AudioStreamPlayer = $Plaga
 
-@onready var ui_beat = $ColorRect
+@onready var ui_beat = $Sprite2D
 @onready var timer: Timer = $Timer
 
 
@@ -54,7 +56,7 @@ func _physics_process(_delta: float) -> void:
 		ultimo_beat = -1
 	if beat_actual > ultimo_beat:
 		ultimo_beat = beat_actual
-		enviar_bit()
+		#enviar_bit()
 		_on_nuevo_beat()
 		Signalbus.nuevo_beat.emit()
 
@@ -95,7 +97,7 @@ func intentar_beat(time_margen, beat):
 		Signalbus.fallo.emit()
 		resetear_combo()
 		print("te as saltado 1")
-		return false
+		return true
 	
 	if time_margen <= margen:
 		print("Perfecto!! Beat: ", beat, " - ",time_margen)
@@ -113,6 +115,8 @@ func resetear_combo():
 	lista_comandos.clear()
 
 func _on_nuevo_beat():
+	if textura:
+		ui_beat.texture = textura
 	ui_beat.visible = true
 
 	var tween = create_tween()
@@ -127,6 +131,7 @@ func _on_timer_timeout() -> void:
 	
 func _on_win_round():
 	lista_comandos.clear()
+	historial = -1
 	
 func _on_tiki_mask():
 	play_masks("Tiki")
@@ -157,17 +162,15 @@ func mute_masks(tipo:String):
 	var tween: Tween = create_tween()
 	tween.tween_method(func(val):AudioServer.set_bus_volume_db(index,val),0, -80,1 )
 	await tween.finished
-	print(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(tipo))  )
 
-func enviar_bit():
-	var bit = BIT.instantiate()
-	var bit2 = BIT.instantiate()
-	$Spawner2.add_child(bit2)
-	$Spawner.add_child(bit)
-	var tween: Tween = get_tree().create_tween().set_parallel(true)
-	print(intervalo_beat)
-	tween.tween_property(bit, "global_position", $Sprite2D.global_position, intervalo_beat + margen)
-	tween.tween_property(bit2, "global_position", $Sprite2D.global_position, intervalo_beat+ margen)
-	await tween.finished
-	bit.queue_free()
-	bit2.queue_free()
+#func enviar_bit():
+	#var bit = BIT.instantiate()
+	#var bit2 = BIT.instantiate()
+	#$Spawner2.add_child(bit2)
+	#$Spawner.add_child(bit)
+	#var tween: Tween = get_tree().create_tween().set_parallel(true)
+	#tween.tween_property(bit, "global_position", $Sprite2D.global_position, intervalo_beat + margen)
+	#tween.tween_property(bit2, "global_position", $Sprite2D.global_position, intervalo_beat+ margen)
+	#await tween.finished
+	#bit.queue_free()
+	#bit2.queue_free()

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8uppgfp7h7k5" path="res://Scripts/ritmo.gd" id="1_316ka"]
 [ext_resource type="AudioStream" uid="uid://gbbyhrvmf4r6" path="res://Assets/Songs/musica_base.wav" id="2_316ka"]
+[ext_resource type="Texture2D" uid="uid://0c4vv8y2p64g" path="res://Assets/beat.png" id="2_k8pxl"]
 [ext_resource type="AudioStream" uid="uid://cn4owhsq7to2u" path="res://Assets/Songs/Claqueta.wav" id="3_yomdr"]
 [ext_resource type="AudioStream" uid="uid://dnn7se8jy1vp8" path="res://Assets/Songs/musica_tiki.wav" id="4_ifm08"]
 [ext_resource type="AudioStream" uid="uid://c3c306dosiyfb" path="res://Assets/Songs/musica_japo.wav" id="5_fxr6j"]
@@ -18,20 +19,8 @@ atlas = ExtResource("8_23brj")
 region = Rect2(0, 0, 268, 128)
 
 [node name="Ritmo" type="Node2D" unique_id=1441584467]
+texture_filter = 1
 script = ExtResource("1_316ka")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=957661181]
-custom_minimum_size = Vector2(30, 30)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 555.0
-offset_top = 4.0
-offset_right = 585.0
-offset_bottom = 92.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0.28235295)
 
 [node name="Timer" type="Timer" parent="." unique_id=589293498]
 autostart = true
@@ -44,7 +33,8 @@ position = Vector2(781, 40)
 position = Vector2(361, 40)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=595490150]
-position = Vector2(570, 40)
+position = Vector2(571, 58)
+texture = ExtResource("2_k8pxl")
 
 [node name="Base" type="AudioStreamPlayer" parent="." unique_id=1857800486]
 stream = ExtResource("2_316ka")
@@ -79,6 +69,7 @@ autoplay = true
 bus = &"Plaga"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=500565967]
+z_index = 2
 offset_left = 303.0
 offset_right = 839.0
 offset_bottom = 127.0

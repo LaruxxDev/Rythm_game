@@ -10,13 +10,20 @@ var _entries_error: bool
 @onready var back_button: Button = $UI/MarginContainer/VBoxContainer/BackButton
 
 @export var leaderboard_internal_name: String
+var score = 0
 
 
 func _ready() -> void:
+	Signalbus.kill.connect(_on_kill)
 	leaderboard_name.text = leaderboard_name.text.replace("{leaderboard}", leaderboard_internal_name)
 	await _load_entries()
 	_set_entry_count()
 	back_button.grab_focus()
+
+
+func _on_kill(num:int):
+	score+= num
+
 
 func _set_entry_count():
 	if entries_container.get_child_count() == 0:
@@ -68,7 +75,6 @@ func _load_entries() -> void:
 
 func _on_submit_pressed() -> void:
 	await Talo.players.identify("username", username.text)
-	var score = RandomNumberGenerator.new().randi_range(0, 100)
 
 	var res = await Talo.leaderboards.add_entry(leaderboard_internal_name, score)
 	info_label.text = "You scored %s points" % [score, " Your highscore was updated!" if res[1] else ""]
