@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://nn6qfngjnsq5"]
 
-[ext_resource type="Script" uid="uid://c2g2ilcdyeqtb" path="res://Scripts/tutorial.gd" id="1_8vphl"]
+[ext_resource type="Script" path="res://Scripts/tutorial.gd" id="1_8vphl"]
 [ext_resource type="Texture2D" uid="uid://dnwpnke70v6dx" path="res://Assets/Scenario_tiles_x4.png" id="2_8vphl"]
 [ext_resource type="Texture2D" uid="uid://cuppj60yivq7p" path="res://Assets/Scenario_x4.png" id="3_a7cfn"]
 [ext_resource type="Texture2D" uid="uid://baeke5ci6gutj" path="res://Assets/Scenario_tileset_x4.png" id="4_nj3xv"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cvmmxk74d0ees" path="res://Assets/Troops_x4.png" id="9_a7cfn"]
 [ext_resource type="Texture2D" uid="uid://6gr4u8dic16t" path="res://Assets/Tiki_mask_true_x4.png" id="11_nj3xv"]
 [ext_resource type="PackedScene" uid="uid://dncdgs4t2odlt" path="res://Scenes/UI/canvas_layer.tscn" id="11_tcbqu"]
+[ext_resource type="PackedScene" uid="uid://1dutxueq6puo" path="res://Scenes/UI/bocadillo.tscn" id="12_tcbqu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e48oh"]
 texture = ExtResource("2_8vphl")
@@ -1255,3 +1256,10 @@ libraries/ = SubResource("AnimationLibrary_tcbqu")
 
 [node name="CanvasLayer" parent="." unique_id=1520853076 instance=ExtResource("11_tcbqu")]
 layer = 50
+
+[node name="Bocadillo" parent="." unique_id=1772096548 instance=ExtResource("12_tcbqu")]
+visible = false
+offset_left = 371.00003
+offset_top = 173.0
+offset_right = 1140.4432
+offset_bottom = 739.88885

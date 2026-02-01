@@ -54,7 +54,7 @@ func start_round():
 		await attack_mask(maskListStr[maskRandomNum])
 		await get_tree().create_timer(2).timeout
 		
-		Signalbus.increchendo.emit(0.1)
+		Signalbus.increchendo.emit(0.6)
 	var num = randi_range(3,7)
 	for i in num:
 		spawn_enemies()

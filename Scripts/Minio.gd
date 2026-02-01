@@ -61,5 +61,5 @@ func take_damage(atq_tipo):
 
 func muerte():
 	#animacion.play(str(tipo,"_dead"))
-	
+	Signalbus.kill.emit(25)
 	queue_free()
