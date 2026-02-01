@@ -153,7 +153,6 @@ func _on_mask_off():
 	mute_masks("Plaga")
 
 func play_masks(tipo:String):
-	print(tipo)
 	var index = AudioServer.get_bus_index(tipo)
 	var tween: Tween = create_tween()
 	tween.tween_method(func(val):AudioServer.set_bus_volume_db(index,val),-80.0, 0,1 )

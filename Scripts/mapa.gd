@@ -49,7 +49,7 @@ func start_round():
 		var maskRandomNum = randi_range(0,3)
 		var maskListStr = ["tiki","tragicomedia","plaga","japo"]
 		attack_mask(maskListStr[maskRandomNum])
-		
+		Signalbus.increchendo.emit(0.05)
 	var num = randi_range(3,7)
 	for i in num:
 		spawn_enemies()

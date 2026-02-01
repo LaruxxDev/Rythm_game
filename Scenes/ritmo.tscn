@@ -38,7 +38,7 @@ texture = ExtResource("2_k8pxl")
 
 [node name="Base" type="AudioStreamPlayer" parent="." unique_id=1857800486]
 stream = ExtResource("2_316ka")
-pitch_scale = 0.5
+pitch_scale = 0.7
 autoplay = true
 bus = &"Base"
 
