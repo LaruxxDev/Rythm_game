@@ -24,5 +24,11 @@ func cinematica() -> void:
 	await animation_player.animation_finished
 	await canvas_layer.fade(1.0, 1.5).finished
 	get_tree().change_scene_to_file("res://Scenes/mapa.tscn")
+
+
 	
-	
+
+
+func _on_button_pressed() -> void:
+	print("aaaaa")
+	get_tree().change_scene_to_file("res://Scenes/mapa.tscn")

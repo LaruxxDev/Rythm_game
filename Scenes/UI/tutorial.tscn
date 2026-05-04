@@ -1258,6 +1258,15 @@ libraries/ = SubResource("AnimationLibrary_tcbqu")
 [node name="CanvasLayer" parent="." unique_id=1520853076 instance=ExtResource("11_tcbqu")]
 layer = 50
 
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1392056834]
+z_index = 4096
+offset_left = 1069.0
+offset_top = 590.0
+offset_right = 1125.0
+offset_bottom = 627.0
+text = "Skip"
+metadata/_edit_use_anchors_ = true
+
 [node name="Bocadillo" parent="." unique_id=1772096548 instance=ExtResource("12_tcbqu")]
 visible = false
 offset_left = 371.00003
@@ -1268,3 +1277,5 @@ offset_bottom = 739.88885
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1498602550]
 stream = ExtResource("13_6x6ws")
 autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
